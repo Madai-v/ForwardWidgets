@@ -1,7 +1,7 @@
-var WidgetMetadata = {
-    id: "pornhub.favorites",
+WidgetMetadata = {
+    id: "Pornhub",
     title: "Pornhub",
-    version: "1.0.0",
+    version: "0.0.1",
     requiredVersion: "0.0.1",
     description: "在线观看Pornhub",
     author: "海带",
@@ -745,7 +745,7 @@ function getUserUploads(params) {
     return new Promise(function (resolve, reject) {
         try {
             console.log("开始获取艺人上传视频: " + JSON.stringify(params));
-                        
+
             // 参数验证
             if (!params.username) {
                 console.log("错误: 未提供艺人名称");
