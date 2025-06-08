@@ -5,7 +5,7 @@ var WidgetMetadata = {
     requiredVersion: "1.0.0",
     description: "在线观看Pornhub",
     author: "海带",
-    site: "https://cn.pornhub.com",
+    site: "https://github.com/Madai-v/ForwardWidgets",
     detailCacheDuration: 360,
     modules: [
         {
