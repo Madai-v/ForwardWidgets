@@ -6,7 +6,7 @@ WidgetMetadata = {
     description: "在线观看Pornhub",
     author: "海带",
     site: "https://github.com/Madai-v/ForwardWidgets",
-    detailCacheDuration: 360,
+    detailCacheDuration: 60,
     modules: [
         {
             id: "favorites",
@@ -61,7 +61,7 @@ WidgetMetadata = {
             id: "searchUser",
             title: "优选艺人",
             functionName: "getUserUploads",
-            cacheDuration: 600,
+            cacheDuration: 60,
             params: [
                 {
                     name: "username",
