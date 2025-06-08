@@ -4,7 +4,7 @@ var WidgetMetadata = {
     version: "0.0.1",
     requiredVersion: "0.0.1",
     description: "在线观看Pornhub",
-    author: "Madai-v",
+    author: "海带",
     site: "https://cn.pornhub.com",
     detailCacheDuration: 360,
     modules: [
