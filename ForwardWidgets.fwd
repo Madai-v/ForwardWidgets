@@ -1,0 +1,16 @@
+{
+  "title": "Forward Widgets",
+  "description": "Forward Widgets",
+  "icon": "https://raw.githubusercontent.com/Madai-v/ForwardWidgets/main/icon/icon.png",
+  "widgets": [
+    {
+      "id": "pornhub.favorites",
+      "title": "Pornhub",
+      "description": "在线观看Pornhub",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.0",
+      "author": "海带",
+      "url": "https://raw.githubusercontent.com/Madai-v/ForwardWidgets/refs/heads/main/Widgets/ph.js"
+    }
+  ]
+}
