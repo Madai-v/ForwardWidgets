@@ -1,18 +1,18 @@
 WidgetMetadata = {
     id: "Pornhub",
     title: "Pornhub",
-    version: "0.0.1",
+    version: "1.0.1",
     requiredVersion: "0.0.1",
     description: "在线观看Pornhub",
     author: "海带",
     site: "https://github.com/Madai-v/ForwardWidgets",
-    detailCacheDuration: 60,
+    detailCacheDuration: 600,
     modules: [
         {
             id: "favorites",
-            title: "我的最爱",
+            title: "❤️ 我的最爱",
             functionName: "getFavorites",
-            cacheDuration: 60,
+            cacheDuration: 180,
             params: [
                 {
                     name: "username",
@@ -31,14 +31,14 @@ WidgetMetadata = {
                     name: "page",
                     title: "页码",
                     type: "page",
-                    description: "收藏列表页码",
+                    description: "页码",
                     value: "1"
                 },
                 {
                     name: "sort_by",
                     title: "排序方式",
                     type: "enumeration",
-                    description: "视频排序方式",
+                    description: "排序方式",
                     value: "default",
                     enumOptions: [
                         {
@@ -59,9 +59,9 @@ WidgetMetadata = {
         },
         {
             id: "searchUser",
-            title: "优选艺人",
+            title: "​🌟 优选艺人",
             functionName: "getUserUploads",
-            cacheDuration: 60,
+            cacheDuration: 300,
             params: [
                 {
                     name: "username",
@@ -78,7 +78,7 @@ WidgetMetadata = {
                     name: "sort_by",
                     title: "排序方式",
                     type: "enumeration",
-                    description: "视频排序方式",
+                    description: "排序方式",
                     value: "default",
                     enumOptions: [
                         {
@@ -99,14 +99,14 @@ WidgetMetadata = {
                     name: "page",
                     title: "页码",
                     type: "page",
-                    description: "艺人视频页码",
+                    description: "页码",
                     value: "1"
                 }
             ]
         },
         {
             id: "premiumArtists",
-            title: "搜索艺人",
+            title: "🔍 搜索艺人",
             functionName: "getUserUploads",
             cacheDuration: 600,
             params: [
@@ -152,7 +152,373 @@ WidgetMetadata = {
                     ]
                 }
             ]
+        },
+        {
+            id: "languageVideos",
+            title: "​🌐 语言筛选",
+            functionName: "getVideosByLanguage",
+            cacheDuration: 600,
+            params: [
+                {
+                    name: "language",
+                    title: "视频语言",
+                    type: "enumeration",
+                    value: "chinese",
+                    enumOptions: [
+                        { title: "中文", value: "chinese" },
+                        { title: "日语", value: "japanese" },
+                        { title: "俄语", value: "russian" },
+                        { title: "德语", value: "german" },
+                        { title: "法语", value: "french" },
+                        { title: "西班牙语", value: "spanish" },
+                        { title: "荷兰语", value: "dutch" },
+                        { title: "波兰语", value: "polish" },
+                        { title: "捷克语", value: "czech" },
+                        { title: "葡萄牙语", value: "portuguese" },
+
+                    ]
+                },
+                {
+                    name: "p",
+                    title: "制作平台类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "专业", value: "professional" },
+                        { title: "自制", value: "homemade" }
+                    ]
+                },
+                {
+                    name: "hd",
+                    title: "分辨率",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "仅高清", value: "1" }
+                    ]
+                },
+                {
+                    name: "sort_by",
+                    title: "排序方式",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "热播", value: "ht" },
+                        { title: "最新精选", value: "" },
+                        { title: "最多观看", value: "mv" },
+                        { title: "最高评分", value: "tr" },
+                        { title: "最新视频", value: "cm" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    value: "1"
+                }
+            ]
+        },
+        {
+            id: "hotVideos",
+            title: "🔥 热播视频",
+            functionName: "getVideos",
+            cacheDuration: 600,
+            params: [
+                {
+                    name: "pageType",
+                    title: "区分页面类型",
+                    description: "区分页面类型",
+                    value: "ht",
+                    type: "constant"
+                },
+                {
+                    name: "p",
+                    title: "出品类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "专业", value: "professional" },
+                        { title: "自制", value: "homemade" }
+                    ]
+                },
+                {
+                    name: "hd",
+                    title: "分辨率",
+                    description: "默认全部",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "仅高清", value: "1" }
+                    ]
+                },
+                {
+                    name: "c",
+                    title: "视频类型",
+                    type: "enumeration",
+                    description: "筛选视频类型",
+                    value: "",
+                    enumOptions: [{ "title": "全部", "value": "" }, { "title": "已认证素人", "value": "138" }, { "title": "已认证模特", "value": "139" }, { "title": "亚洲人", "value": "1" }, { "title": "已认证情侣", "value": "482" }, { "title": "60帧", "value": "105" }, { "title": "大学", "value": "79" }, { "title": "18-25岁", "value": "teen" }, { "title": "韩国人", "value": "103" }, { "title": "日本人", "value": "111" }, { "title": "校园", "value": "88" }, { "title": "欧洲人", "value": "55" }, { "title": "英国人", "value": "96" }, { "title": "法国人", "value": "94" }, { "title": "浪漫", "value": "522" }, { "title": "女性自慰", "value": "492" }, { "title": "女性高潮", "value": "502" }, { "title": "3P", "value": "65" }, { "title": "Cosplay", "value": "241" }, { "title": "Gaming", "value": "881" }, { "title": "Podcast", "value": "891" }, { "title": "上班时观赏", "value": "221" }, { "title": "乱交群欢", "value": "2" }, { "title": "交互式", "value": "108" }, { "title": "佩戴式阳具", "value": "542" }, { "title": "俄国人", "value": "99" }, { "title": "公众野战", "value": "24" }, { "title": "内射中出", "value": "15" }, { "title": "内嵌字幕", "value": "732" }, { "title": "劲爆重口味", "value": "21" }, { "title": "卡通", "value": "86" }, { "title": "印度人", "value": "101" }, { "title": "双性恋男", "value": "76" }, { "title": "双龙入洞", "value": "72" }, { "title": "口交", "value": "13" }, { "title": "古典派", "value": "43" }, { "title": "合集", "value": "57" }, { "title": "名人", "value": "12" }, { "title": "大号美女", "value": "6" }, { "title": "女同", "value": "27" }, { "title": "娇妻偷吃", "value": "242" }, { "title": "射精", "value": "16" }, { "title": "巨乳", "value": "8" }, { "title": "巨屌", "value": "7" }, { "title": "巴西人", "value": "102" }, { "title": "德国人", "value": "95" }, { "title": "性玩具", "value": "23" }, { "title": "恋物癖", "value": "18" }, { "title": "恋足", "value": "93" }, { "title": "意大利人", "value": "97" }, { "title": "手交", "value": "20" }, { "title": "手淫", "value": "22" }, { "title": "抽烟", "value": "91" }, { "title": "拉丁裔美女", "value": "26" }, { "title": "拳交", "value": "19" }, { "title": "指交", "value": "592" }, { "title": "按摩", "value": "78" }, { "title": "捆绑", "value": "10" }, { "title": "捷克人", "value": "100" }, { "title": "搞笑", "value": "32" }, { "title": "撒尿", "value": "211" }, { "title": "深发女", "value": "11" }, { "title": "滑稽模仿", "value": "201" }, { "title": "潮吹", "value": "69" }, { "title": "火辣保姆", "value": "89" }, { "title": "熟女", "value": "28" }, { "title": "爆菊", "value": "35" }, { "title": "片场直击", "value": "141" }, { "title": "独家", "value": "115" }, { "title": "男同", "value": "63" }, { "title": "男性自慰", "value": "92" }, { "title": "真人实拍", "value": "31" }, { "title": "第一视角", "value": "41" }, { "title": "粗暴性爱", "value": "67" }, { "title": "素人", "value": "3" }, { "title": "红毛", "value": "42" }, { "title": "纹身女", "value": "562" }, { "title": "继家庭幻想", "value": "444" }, { "title": "老少欢", "value": "181" }, { "title": "聚会", "value": "53" }, { "title": "肌肉男", "value": "512" }, { "title": "肥臀", "value": "4" }, { "title": "脱衣舞", "value": "33" }, { "title": "自述视频", "value": "231" }, { "title": "舔屄", "value": "131" }, { "title": "色情日漫", "value": "36" }, { "title": "色情明星", "value": "30" }, { "title": "视频激情", "value": "61" }, { "title": "角色扮演", "value": "81" }, { "title": "试镜", "value": "90" }, { "title": "贫乳", "value": "59" }, { "title": "跨性别", "value": "83" }, { "title": "跨种族", "value": "25" }, { "title": "轮交", "value": "80" }, { "title": "辣妈", "value": "29" }, { "title": "金发女", "value": "9" }, { "title": "阿拉伯人", "value": "98" }, { "title": "集体颜射", "value": "14" }, { "title": "音乐", "value": "121" }, { "title": "风情少女", "value": "5" }, { "title": "高清色情片", "value": "38" }, { "title": "黑人女", "value": "17" }
+                    ]
+                },
+                {
+                    name: "country",
+                    title: "国家/地区",
+                    type: "enumeration",
+                    description: "选择国家或地区",
+                    value: "world",
+                    enumOptions: [{ title: "全球", value: "world" }, { title: "日本", value: "jp" }, { title: "韩国", value: "kr" }, { title: "美国", value: "us" }, { title: "英国", value: "gb" }, { title: "法国", value: "fr" }, { title: "德国", value: "de" }, { title: "澳大利亚", value: "au" }, { title: "俄罗斯", value: "ru" }, { title: "塞尔维亚", value: "rs" }, { title: "丹麦", value: "dk" }, { title: "阿根廷", value: "ar" }, { title: "奥地利", value: "at" }, { title: "比利时", value: "be" }, { title: "巴西", value: "br" }, { title: "保加利亚", value: "bg" }, { title: "加拿大", value: "ca" }, { title: "智利", value: "cl" }, { title: "克罗地亚", value: "hr" }, { title: "捷克", value: "cz" }, { title: "埃及", value: "eg" }, { title: "芬兰", value: "fi" }, { title: "希腊", value: "gr" }, { title: "匈牙利", value: "hu" }, { title: "印度", value: "in" }, { title: "爱尔兰", value: "ie" }, { title: "以色列", value: "il" }, { title: "意大利", value: "it" }, { title: "墨西哥", value: "mx" }, { title: "摩洛哥", value: "ma" }, { title: "荷兰", value: "nl" }, { title: "新西兰", value: "nz" }, { title: "挪威", value: "no" }, { title: "巴基斯坦", value: "pk" }, { title: "波兰", value: "pl" }, { title: "葡萄牙", value: "pt" }, { title: "罗马尼亚", value: "ro" }, { title: "斯洛伐克", value: "sk" }, { title: "西班牙", value: "es" }, { title: "瑞典", value: "se" }, { title: "瑞士", value: "ch" }, { title: "乌克兰", value: "ua" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    description: "热门视频页码",
+                    value: "1"
+                }
+            ]
+        },
+        {
+            id: "topViews",
+            title: "👀 最多观看",
+            functionName: "getVideos",
+            cacheDuration: 600,
+            params: [
+                {
+                    name: "pageType",
+                    title: "区分页面类型",
+                    description: "区分页面类型",
+                    value: "mv",
+                    type: "constant"
+                },
+                {
+                    name: "p",
+                    title: "出品类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "专业", value: "professional" },
+                        { title: "自制", value: "homemade" }
+                    ]
+                },
+                {
+                    name: "hd",
+                    title: "分辨率",
+                    description: "默认全部",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "仅高清", value: "1" }
+                    ]
+                },
+                {
+                    name: "c",
+                    title: "视频类型",
+                    type: "enumeration",
+                    description: "筛选视频类型",
+                    value: "",
+                    enumOptions: [{ "title": "全部", "value": "" }, { "title": "已认证素人", "value": "138" }, { "title": "已认证模特", "value": "139" }, { "title": "亚洲人", "value": "1" }, { "title": "已认证情侣", "value": "482" }, { "title": "60帧", "value": "105" }, { "title": "大学", "value": "79" }, { "title": "18-25岁", "value": "teen" }, { "title": "韩国人", "value": "103" }, { "title": "日本人", "value": "111" }, { "title": "校园", "value": "88" }, { "title": "欧洲人", "value": "55" }, { "title": "英国人", "value": "96" }, { "title": "法国人", "value": "94" }, { "title": "浪漫", "value": "522" }, { "title": "女性自慰", "value": "492" }, { "title": "女性高潮", "value": "502" }, { "title": "3P", "value": "65" }, { "title": "Cosplay", "value": "241" }, { "title": "Gaming", "value": "881" }, { "title": "Podcast", "value": "891" }, { "title": "上班时观赏", "value": "221" }, { "title": "乱交群欢", "value": "2" }, { "title": "交互式", "value": "108" }, { "title": "佩戴式阳具", "value": "542" }, { "title": "俄国人", "value": "99" }, { "title": "公众野战", "value": "24" }, { "title": "内射中出", "value": "15" }, { "title": "内嵌字幕", "value": "732" }, { "title": "劲爆重口味", "value": "21" }, { "title": "卡通", "value": "86" }, { "title": "印度人", "value": "101" }, { "title": "双性恋男", "value": "76" }, { "title": "双龙入洞", "value": "72" }, { "title": "口交", "value": "13" }, { "title": "古典派", "value": "43" }, { "title": "合集", "value": "57" }, { "title": "名人", "value": "12" }, { "title": "大号美女", "value": "6" }, { "title": "女同", "value": "27" }, { "title": "娇妻偷吃", "value": "242" }, { "title": "射精", "value": "16" }, { "title": "巨乳", "value": "8" }, { "title": "巨屌", "value": "7" }, { "title": "巴西人", "value": "102" }, { "title": "德国人", "value": "95" }, { "title": "性玩具", "value": "23" }, { "title": "恋物癖", "value": "18" }, { "title": "恋足", "value": "93" }, { "title": "意大利人", "value": "97" }, { "title": "手交", "value": "20" }, { "title": "手淫", "value": "22" }, { "title": "抽烟", "value": "91" }, { "title": "拉丁裔美女", "value": "26" }, { "title": "拳交", "value": "19" }, { "title": "指交", "value": "592" }, { "title": "按摩", "value": "78" }, { "title": "捆绑", "value": "10" }, { "title": "捷克人", "value": "100" }, { "title": "搞笑", "value": "32" }, { "title": "撒尿", "value": "211" }, { "title": "深发女", "value": "11" }, { "title": "滑稽模仿", "value": "201" }, { "title": "潮吹", "value": "69" }, { "title": "火辣保姆", "value": "89" }, { "title": "熟女", "value": "28" }, { "title": "爆菊", "value": "35" }, { "title": "片场直击", "value": "141" }, { "title": "独家", "value": "115" }, { "title": "男同", "value": "63" }, { "title": "男性自慰", "value": "92" }, { "title": "真人实拍", "value": "31" }, { "title": "第一视角", "value": "41" }, { "title": "粗暴性爱", "value": "67" }, { "title": "素人", "value": "3" }, { "title": "红毛", "value": "42" }, { "title": "纹身女", "value": "562" }, { "title": "继家庭幻想", "value": "444" }, { "title": "老少欢", "value": "181" }, { "title": "聚会", "value": "53" }, { "title": "肌肉男", "value": "512" }, { "title": "肥臀", "value": "4" }, { "title": "脱衣舞", "value": "33" }, { "title": "自述视频", "value": "231" }, { "title": "舔屄", "value": "131" }, { "title": "色情日漫", "value": "36" }, { "title": "色情明星", "value": "30" }, { "title": "视频激情", "value": "61" }, { "title": "角色扮演", "value": "81" }, { "title": "试镜", "value": "90" }, { "title": "贫乳", "value": "59" }, { "title": "跨性别", "value": "83" }, { "title": "跨种族", "value": "25" }, { "title": "轮交", "value": "80" }, { "title": "辣妈", "value": "29" }, { "title": "金发女", "value": "9" }, { "title": "阿拉伯人", "value": "98" }, { "title": "集体颜射", "value": "14" }, { "title": "音乐", "value": "121" }, { "title": "风情少女", "value": "5" }, { "title": "高清色情片", "value": "38" }, { "title": "黑人女", "value": "17" }
+                    ]
+                },
+                {
+                    name: "sort_by",
+                    title: "时间范围",
+                    type: "enumeration",
+                    description: "选择统计时间范围",
+                    value: "", // 默认值为空，对应每周统计
+                    enumOptions: [
+                        { title: "每周", value: "" },
+                        { title: "每天", value: "t" },
+                        { title: "每月", value: "m" },
+                        { title: "每年", value: "y" },
+                        { title: "迄今为止", value: "a" }
+                    ]
+                },
+                {
+                    name: "country",
+                    title: "国家/地区",
+                    type: "enumeration",
+                    description: "选择国家或地区",
+                    value: "world",
+                    enumOptions: [{ title: "全球", value: "world" }, { title: "日本", value: "jp" }, { title: "韩国", value: "kr" }, { title: "美国", value: "us" }, { title: "英国", value: "gb" }, { title: "法国", value: "fr" }, { title: "德国", value: "de" }, { title: "澳大利亚", value: "au" }, { title: "俄罗斯", value: "ru" }, { title: "塞尔维亚", value: "rs" }, { title: "丹麦", value: "dk" }, { title: "阿根廷", value: "ar" }, { title: "奥地利", value: "at" }, { title: "比利时", value: "be" }, { title: "巴西", value: "br" }, { title: "保加利亚", value: "bg" }, { title: "加拿大", value: "ca" }, { title: "智利", value: "cl" }, { title: "克罗地亚", value: "hr" }, { title: "捷克", value: "cz" }, { title: "埃及", value: "eg" }, { title: "芬兰", value: "fi" }, { title: "希腊", value: "gr" }, { title: "匈牙利", value: "hu" }, { title: "印度", value: "in" }, { title: "爱尔兰", value: "ie" }, { title: "以色列", value: "il" }, { title: "意大利", value: "it" }, { title: "墨西哥", value: "mx" }, { title: "摩洛哥", value: "ma" }, { title: "荷兰", value: "nl" }, { title: "新西兰", value: "nz" }, { title: "挪威", value: "no" }, { title: "巴基斯坦", value: "pk" }, { title: "波兰", value: "pl" }, { title: "葡萄牙", value: "pt" }, { title: "罗马尼亚", value: "ro" }, { title: "斯洛伐克", value: "sk" }, { title: "西班牙", value: "es" }, { title: "瑞典", value: "se" }, { title: "瑞士", value: "ch" }, { title: "乌克兰", value: "ua" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    description: "热门视频页码",
+                    value: "1"
+                }
+            ]
+        },
+        {
+            id: "maxRating",
+            title: "​🏆 最高评分",
+            functionName: "getVideos", // 使用相同的getVideos函数
+            cacheDuration: 600,
+            params: [
+                {
+                    name: "pageType",
+                    title: "区分页面类型",
+                    description: "区分页面类型",
+                    value: "tr", // 对应最高评分页面
+                    type: "constant"
+                },
+                {
+                    name: "p",
+                    title: "出品类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "专业", value: "professional" },
+                        { title: "自制", value: "homemade" }
+                    ]
+                },
+                {
+                    name: "hd",
+                    title: "分辨率",
+                    description: "默认全部",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "仅高清", value: "1" }
+                    ]
+                },
+                {
+                    name: "c",
+                    title: "视频类型",
+                    type: "enumeration",
+                    description: "筛选视频类型",
+                    value: "",
+                    enumOptions: [{ "title": "全部", "value": "" }, { "title": "已认证素人", "value": "138" }, { "title": "已认证模特", "value": "139" }, { "title": "亚洲人", "value": "1" }, { "title": "已认证情侣", "value": "482" }, { "title": "60帧", "value": "105" }, { "title": "大学", "value": "79" }, { "title": "18-25岁", "value": "teen" }, { "title": "韩国人", "value": "103" }, { "title": "日本人", "value": "111" }, { "title": "校园", "value": "88" }, { "title": "欧洲人", "value": "55" }, { "title": "英国人", "value": "96" }, { "title": "法国人", "value": "94" }, { "title": "浪漫", "value": "522" }, { "title": "女性自慰", "value": "492" }, { "title": "女性高潮", "value": "502" }, { "title": "3P", "value": "65" }, { "title": "Cosplay", "value": "241" }, { "title": "Gaming", "value": "881" }, { "title": "Podcast", "value": "891" }, { "title": "上班时观赏", "value": "221" }, { "title": "乱交群欢", "value": "2" }, { "title": "交互式", "value": "108" }, { "title": "佩戴式阳具", "value": "542" }, { "title": "俄国人", "value": "99" }, { "title": "公众野战", "value": "24" }, { "title": "内射中出", "value": "15" }, { "title": "内嵌字幕", "value": "732" }, { "title": "劲爆重口味", "value": "21" }, { "title": "卡通", "value": "86" }, { "title": "印度人", "value": "101" }, { "title": "双性恋男", "value": "76" }, { "title": "双龙入洞", "value": "72" }, { "title": "口交", "value": "13" }, { "title": "古典派", "value": "43" }, { "title": "合集", "value": "57" }, { "title": "名人", "value": "12" }, { "title": "大号美女", "value": "6" }, { "title": "女同", "value": "27" }, { "title": "娇妻偷吃", "value": "242" }, { "title": "射精", "value": "16" }, { "title": "巨乳", "value": "8" }, { "title": "巨屌", "value": "7" }, { "title": "巴西人", "value": "102" }, { "title": "德国人", "value": "95" }, { "title": "性玩具", "value": "23" }, { "title": "恋物癖", "value": "18" }, { "title": "恋足", "value": "93" }, { "title": "意大利人", "value": "97" }, { "title": "手交", "value": "20" }, { "title": "手淫", "value": "22" }, { "title": "抽烟", "value": "91" }, { "title": "拉丁裔美女", "value": "26" }, { "title": "拳交", "value": "19" }, { "title": "指交", "value": "592" }, { "title": "按摩", "value": "78" }, { "title": "捆绑", "value": "10" }, { "title": "捷克人", "value": "100" }, { "title": "搞笑", "value": "32" }, { "title": "撒尿", "value": "211" }, { "title": "深发女", "value": "11" }, { "title": "滑稽模仿", "value": "201" }, { "title": "潮吹", "value": "69" }, { "title": "火辣保姆", "value": "89" }, { "title": "熟女", "value": "28" }, { "title": "爆菊", "value": "35" }, { "title": "片场直击", "value": "141" }, { "title": "独家", "value": "115" }, { "title": "男同", "value": "63" }, { "title": "男性自慰", "value": "92" }, { "title": "真人实拍", "value": "31" }, { "title": "第一视角", "value": "41" }, { "title": "粗暴性爱", "value": "67" }, { "title": "素人", "value": "3" }, { "title": "红毛", "value": "42" }, { "title": "纹身女", "value": "562" }, { "title": "继家庭幻想", "value": "444" }, { "title": "老少欢", "value": "181" }, { "title": "聚会", "value": "53" }, { "title": "肌肉男", "value": "512" }, { "title": "肥臀", "value": "4" }, { "title": "脱衣舞", "value": "33" }, { "title": "自述视频", "value": "231" }, { "title": "舔屄", "value": "131" }, { "title": "色情日漫", "value": "36" }, { "title": "色情明星", "value": "30" }, { "title": "视频激情", "value": "61" }, { "title": "角色扮演", "value": "81" }, { "title": "试镜", "value": "90" }, { "title": "贫乳", "value": "59" }, { "title": "跨性别", "value": "83" }, { "title": "跨种族", "value": "25" }, { "title": "轮交", "value": "80" }, { "title": "辣妈", "value": "29" }, { "title": "金发女", "value": "9" }, { "title": "阿拉伯人", "value": "98" }, { "title": "集体颜射", "value": "14" }, { "title": "音乐", "value": "121" }, { "title": "风情少女", "value": "5" }, { "title": "高清色情片", "value": "38" }, { "title": "黑人女", "value": "17" }
+                    ]
+
+                },
+                {
+                    name: "sort_by",
+                    title: "时间范围",
+                    type: "enumeration",
+                    description: "选择统计时间范围",
+                    value: "", // 默认值为空，对应每月统计
+                    enumOptions: [
+                        { title: "每月", value: "" },
+                        { title: "每天", value: "t" },
+                        { title: "每周", value: "w" },
+                        { title: "每年", value: "y" },
+                        { title: "迄今为止", value: "a" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    description: "最高评分视频页码",
+                    value: "1"
+                }
+            ]
+        },
+        {
+            id: "latestFeatured",
+            title: "🎯 最新精选",
+            functionName: "getVideos",
+            cacheDuration: 600,
+            params: [
+                {
+                    name: "c",
+                    title: "视频类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [{ "title": "全部", "value": "" }, { "title": "已认证素人", "value": "138" }, { "title": "已认证模特", "value": "139" }, { "title": "亚洲人", "value": "1" }, { "title": "已认证情侣", "value": "482" }, { "title": "60帧", "value": "105" }, { "title": "大学", "value": "79" }, { "title": "18-25岁", "value": "teen" }, { "title": "韩国人", "value": "103" }, { "title": "日本人", "value": "111" }, { "title": "校园", "value": "88" }, { "title": "欧洲人", "value": "55" }, { "title": "英国人", "value": "96" }, { "title": "法国人", "value": "94" }, { "title": "浪漫", "value": "522" }, { "title": "女性自慰", "value": "492" }, { "title": "女性高潮", "value": "502" }, { "title": "3P", "value": "65" }, { "title": "Cosplay", "value": "241" }, { "title": "Gaming", "value": "881" }, { "title": "Podcast", "value": "891" }, { "title": "上班时观赏", "value": "221" }, { "title": "乱交群欢", "value": "2" }, { "title": "交互式", "value": "108" }, { "title": "佩戴式阳具", "value": "542" }, { "title": "俄国人", "value": "99" }, { "title": "公众野战", "value": "24" }, { "title": "内射中出", "value": "15" }, { "title": "内嵌字幕", "value": "732" }, { "title": "劲爆重口味", "value": "21" }, { "title": "卡通", "value": "86" }, { "title": "印度人", "value": "101" }, { "title": "双性恋男", "value": "76" }, { "title": "双龙入洞", "value": "72" }, { "title": "口交", "value": "13" }, { "title": "古典派", "value": "43" }, { "title": "合集", "value": "57" }, { "title": "名人", "value": "12" }, { "title": "大号美女", "value": "6" }, { "title": "女同", "value": "27" }, { "title": "娇妻偷吃", "value": "242" }, { "title": "射精", "value": "16" }, { "title": "巨乳", "value": "8" }, { "title": "巨屌", "value": "7" }, { "title": "巴西人", "value": "102" }, { "title": "德国人", "value": "95" }, { "title": "性玩具", "value": "23" }, { "title": "恋物癖", "value": "18" }, { "title": "恋足", "value": "93" }, { "title": "意大利人", "value": "97" }, { "title": "手交", "value": "20" }, { "title": "手淫", "value": "22" }, { "title": "抽烟", "value": "91" }, { "title": "拉丁裔美女", "value": "26" }, { "title": "拳交", "value": "19" }, { "title": "指交", "value": "592" }, { "title": "按摩", "value": "78" }, { "title": "捆绑", "value": "10" }, { "title": "捷克人", "value": "100" }, { "title": "搞笑", "value": "32" }, { "title": "撒尿", "value": "211" }, { "title": "深发女", "value": "11" }, { "title": "滑稽模仿", "value": "201" }, { "title": "潮吹", "value": "69" }, { "title": "火辣保姆", "value": "89" }, { "title": "熟女", "value": "28" }, { "title": "爆菊", "value": "35" }, { "title": "片场直击", "value": "141" }, { "title": "独家", "value": "115" }, { "title": "男同", "value": "63" }, { "title": "男性自慰", "value": "92" }, { "title": "真人实拍", "value": "31" }, { "title": "第一视角", "value": "41" }, { "title": "粗暴性爱", "value": "67" }, { "title": "素人", "value": "3" }, { "title": "红毛", "value": "42" }, { "title": "纹身女", "value": "562" }, { "title": "继家庭幻想", "value": "444" }, { "title": "老少欢", "value": "181" }, { "title": "聚会", "value": "53" }, { "title": "肌肉男", "value": "512" }, { "title": "肥臀", "value": "4" }, { "title": "脱衣舞", "value": "33" }, { "title": "自述视频", "value": "231" }, { "title": "舔屄", "value": "131" }, { "title": "色情日漫", "value": "36" }, { "title": "色情明星", "value": "30" }, { "title": "视频激情", "value": "61" }, { "title": "角色扮演", "value": "81" }, { "title": "试镜", "value": "90" }, { "title": "贫乳", "value": "59" }, { "title": "跨性别", "value": "83" }, { "title": "跨种族", "value": "25" }, { "title": "轮交", "value": "80" }, { "title": "辣妈", "value": "29" }, { "title": "金发女", "value": "9" }, { "title": "阿拉伯人", "value": "98" }, { "title": "集体颜射", "value": "14" }, { "title": "音乐", "value": "121" }, { "title": "风情少女", "value": "5" }, { "title": "高清色情片", "value": "38" }, { "title": "黑人女", "value": "17" }
+                    ]
+                },
+                {
+                    name: "p",
+                    title: "出品类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "专业", value: "professional" },
+                        { title: "自制", value: "homemade" }
+                    ]
+                },
+                {
+                    name: "hd",
+                    title: "分辨率",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "仅高清", value: "1" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    value: "1"
+                }
+            ]
+        },
+        {
+            id: "newVideos",
+            title: "​🆕 最新视频",
+            functionName: "getVideos",
+            cacheDuration: 600,
+            params: [
+                {
+                    name: "pageType",
+                    title: "页面类型",
+                    value: "cm",
+                    type: "constant"
+                },
+                {
+                    name: "p",
+                    title: "出品类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "专业", value: "professional" },
+                        { title: "自制", value: "homemade" }
+                    ]
+                },
+                {
+                    name: "hd",
+                    title: "分辨率",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "全部", value: "" },
+                        { title: "仅高清", value: "1" }
+                    ]
+                },
+                {
+                    name: "c",
+                    title: "视频类型",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [{ "title": "全部", "value": "" }, { "title": "已认证素人", "value": "138" }, { "title": "已认证模特", "value": "139" }, { "title": "亚洲人", "value": "1" }, { "title": "已认证情侣", "value": "482" }, { "title": "60帧", "value": "105" }, { "title": "大学", "value": "79" }, { "title": "18-25岁", "value": "teen" }, { "title": "韩国人", "value": "103" }, { "title": "日本人", "value": "111" }, { "title": "校园", "value": "88" }, { "title": "欧洲人", "value": "55" }, { "title": "英国人", "value": "96" }, { "title": "法国人", "value": "94" }, { "title": "浪漫", "value": "522" }, { "title": "女性自慰", "value": "492" }, { "title": "女性高潮", "value": "502" }, { "title": "3P", "value": "65" }, { "title": "Cosplay", "value": "241" }, { "title": "Gaming", "value": "881" }, { "title": "Podcast", "value": "891" }, { "title": "上班时观赏", "value": "221" }, { "title": "乱交群欢", "value": "2" }, { "title": "交互式", "value": "108" }, { "title": "佩戴式阳具", "value": "542" }, { "title": "俄国人", "value": "99" }, { "title": "公众野战", "value": "24" }, { "title": "内射中出", "value": "15" }, { "title": "内嵌字幕", "value": "732" }, { "title": "劲爆重口味", "value": "21" }, { "title": "卡通", "value": "86" }, { "title": "印度人", "value": "101" }, { "title": "双性恋男", "value": "76" }, { "title": "双龙入洞", "value": "72" }, { "title": "口交", "value": "13" }, { "title": "古典派", "value": "43" }, { "title": "合集", "value": "57" }, { "title": "名人", "value": "12" }, { "title": "大号美女", "value": "6" }, { "title": "女同", "value": "27" }, { "title": "娇妻偷吃", "value": "242" }, { "title": "射精", "value": "16" }, { "title": "巨乳", "value": "8" }, { "title": "巨屌", "value": "7" }, { "title": "巴西人", "value": "102" }, { "title": "德国人", "value": "95" }, { "title": "性玩具", "value": "23" }, { "title": "恋物癖", "value": "18" }, { "title": "恋足", "value": "93" }, { "title": "意大利人", "value": "97" }, { "title": "手交", "value": "20" }, { "title": "手淫", "value": "22" }, { "title": "抽烟", "value": "91" }, { "title": "拉丁裔美女", "value": "26" }, { "title": "拳交", "value": "19" }, { "title": "指交", "value": "592" }, { "title": "按摩", "value": "78" }, { "title": "捆绑", "value": "10" }, { "title": "捷克人", "value": "100" }, { "title": "搞笑", "value": "32" }, { "title": "撒尿", "value": "211" }, { "title": "深发女", "value": "11" }, { "title": "滑稽模仿", "value": "201" }, { "title": "潮吹", "value": "69" }, { "title": "火辣保姆", "value": "89" }, { "title": "熟女", "value": "28" }, { "title": "爆菊", "value": "35" }, { "title": "片场直击", "value": "141" }, { "title": "独家", "value": "115" }, { "title": "男同", "value": "63" }, { "title": "男性自慰", "value": "92" }, { "title": "真人实拍", "value": "31" }, { "title": "第一视角", "value": "41" }, { "title": "粗暴性爱", "value": "67" }, { "title": "素人", "value": "3" }, { "title": "红毛", "value": "42" }, { "title": "纹身女", "value": "562" }, { "title": "继家庭幻想", "value": "444" }, { "title": "老少欢", "value": "181" }, { "title": "聚会", "value": "53" }, { "title": "肌肉男", "value": "512" }, { "title": "肥臀", "value": "4" }, { "title": "脱衣舞", "value": "33" }, { "title": "自述视频", "value": "231" }, { "title": "舔屄", "value": "131" }, { "title": "色情日漫", "value": "36" }, { "title": "色情明星", "value": "30" }, { "title": "视频激情", "value": "61" }, { "title": "角色扮演", "value": "81" }, { "title": "试镜", "value": "90" }, { "title": "贫乳", "value": "59" }, { "title": "跨性别", "value": "83" }, { "title": "跨种族", "value": "25" }, { "title": "轮交", "value": "80" }, { "title": "辣妈", "value": "29" }, { "title": "金发女", "value": "9" }, { "title": "阿拉伯人", "value": "98" }, { "title": "集体颜射", "value": "14" }, { "title": "音乐", "value": "121" }, { "title": "风情少女", "value": "5" }, { "title": "高清色情片", "value": "38" }, { "title": "黑人女", "value": "17" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    value: "1"
+                }
+            ]
         }
+
     ]
 };
 
@@ -336,117 +702,50 @@ function extractVideoInfo($, element, viewkey) {
 // 从HTML中提取m3u8链接
 function extractM3u8FromHtml(html) {
     try {
-        // 方法1: 提取mediaDefinitions
-        var mediaDefinitionsMatch = html.match(/"mediaDefinitions"\s*:\s*(\[.+?\])/);
-        if (mediaDefinitionsMatch) {
+        // 方法1: mediaDefinitions
+        let match = html.match(/"mediaDefinitions"\s*:\s*(\[.+?\])/);
+        if (match) {
             try {
-                // 尝试解析JSON
-                var cleanJson = mediaDefinitionsMatch[1].replace(/'/g, '"').replace(/,\s*]/g, ']');
-                var mediaDefinitions = JSON.parse(cleanJson);
-
-                // 过滤出m3u8格式的链接
-                var hlsItems = [];
-                for (var i = 0; i < mediaDefinitions.length; i++) {
-                    var item = mediaDefinitions[i];
-                    if (item && item.format === 'hls' && item.videoUrl) {
-                        hlsItems.push(item);
-                    }
-                }
-
+                let defs = JSON.parse(match[1].replace(/'/g, '"').replace(/,\s*]/g, ']'));
+                let hlsItems = defs.filter(item => item && item.format === 'hls' && item.videoUrl);
                 if (hlsItems.length > 0) {
-                    // 按质量排序
-                    hlsItems.sort(function (a, b) {
-                        var qualityA = parseInt(a.quality) || 0;
-                        var qualityB = parseInt(b.quality) || 0;
-                        return qualityB - qualityA; // 降序，最高质量在前
-                    });
-
-                    var bestItem = hlsItems[0];
-                    var formats = [];
-                    for (var j = 0; j < hlsItems.length; j++) {
-                        formats.push({
-                            url: hlsItems[j].videoUrl,
-                            format: hlsItems[j].quality + "p",
-                            ext: 'm3u8',
-                            type: 'hls'
-                        });
-                    }
-
+                    hlsItems.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
+                    let formats = hlsItems.map(i => ({
+                        url: i.videoUrl,
+                        format: (i.quality ? i.quality + 'p' : ''),
+                        ext: 'm3u8',
+                        type: 'hls'
+                    }));
                     return {
-                        videoUrl: bestItem.videoUrl,
-                        quality: bestItem.quality + "p",
-                        formats: formats
+                        videoUrl: hlsItems[0].videoUrl,
+                        quality: (hlsItems[0].quality ? hlsItems[0].quality + 'p' : ''),
+                        formats
                     };
                 }
-            } catch (jsonError) {
-                console.log("解析mediaDefinitions JSON失败: " + jsonError.message);
-            }
+            } catch { }
         }
 
-        // 方法2: 提取flashvars
-        var flashvarsMatch = html.match(/var\s+flashvars_\d+\s*=\s*({.+?});/);
-        if (flashvarsMatch) {
+        // 方法2: flashvars
+        match = html.match(/var\s+flashvars_\d+\s*=\s*({.+?});/);
+        if (match) {
             try {
-                var flashvars = JSON.parse(flashvarsMatch[1]);
-                if (flashvars && flashvars.mediaDefinitions && Array.isArray(flashvars.mediaDefinitions)) {
-                    var hlsItems = [];
-                    for (var i = 0; i < flashvars.mediaDefinitions.length; i++) {
-                        var item = flashvars.mediaDefinitions[i];
-                        if (item && item.format === 'hls' && item.videoUrl) {
-                            hlsItems.push(item);
-                        }
-                    }
-
-                    if (hlsItems.length > 0) {
-                        // 按质量排序
-                        hlsItems.sort(function (a, b) {
-                            var qualityA = parseInt(a.quality) || 0;
-                            var qualityB = parseInt(b.quality) || 0;
-                            return qualityB - qualityA; // 降序，最高质量在前
-                        });
-
-                        var bestItem = hlsItems[0];
-                        var formats = [];
-                        for (var j = 0; j < hlsItems.length; j++) {
-                            formats.push({
-                                url: hlsItems[j].videoUrl,
-                                format: hlsItems[j].quality + "p",
-                                ext: 'm3u8',
-                                type: 'hls'
-                            });
-                        }
-
-                        return {
-                            videoUrl: bestItem.videoUrl,
-                            quality: bestItem.quality + "p",
-                            formats: formats
-                        };
-                    }
+                let flashvars = JSON.parse(match[1]);
+                let hlsItems = flashvars.mediaDefinitions?.filter(item => item && item.format === 'hls' && item.videoUrl) || [];
+                if (hlsItems.length > 0) {
+                    hlsItems.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
+                    let formats = hlsItems.map(i => ({
+                        url: i.videoUrl,
+                        format: (i.quality ? i.quality + 'p' : ''),
+                        ext: 'm3u8',
+                        type: 'hls'
+                    }));
+                    return {
+                        videoUrl: hlsItems[0].videoUrl,
+                        quality: (hlsItems[0].quality ? hlsItems[0].quality + 'p' : ''),
+                        formats
+                    };
                 }
-            } catch (jsonError) {
-                console.log("解析flashvars JSON失败: " + jsonError.message);
-            }
-        }
-
-        // 方法3: 直接搜索m3u8链接
-        var m3u8UrlMatch = html.match(/https:\/\/[^"']+\.m3u8[^"']*/);
-        if (m3u8UrlMatch) {
-            var m3u8Url = m3u8UrlMatch[0];
-
-            // 尝试从URL中提取质量
-            var qualityMatch = m3u8Url.match(/(\d+)[pP]_\d+[kK]/);
-            var quality = qualityMatch ? qualityMatch[1] + "p" : '720p'; // 默认假设720p
-
-            return {
-                videoUrl: m3u8Url,
-                quality: quality,
-                formats: [{
-                    url: m3u8Url,
-                    format: quality,
-                    ext: 'm3u8',
-                    type: 'hls'
-                }]
-            };
+            } catch { }
         }
 
         return null;
@@ -456,79 +755,39 @@ function extractM3u8FromHtml(html) {
     }
 }
 
-// 获取视频m3u8播放链接 - 不做缓存，由播放器系统管理
+// 获取视频m3u8播放链接
 async function getVideoM3u8Link(viewkey) {
     try {
-        console.log("开始获取视频 " + viewkey + " 的播放链接");
-
-        // 构建请求头
+        // 统一请求头
         var headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
             "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
             "Cache-Control": "no-cache",
-            "Pragma": "no-cache"
+            "Pragma": "no-cache",
+            "Referer": "https://cn.pornhub.com/",
+            "Host": "cn.pornhub.com"
         };
 
-        // 先尝试中文站点
-        var cnUrl = "https://cn.pornhub.com/view_video.php?viewkey=" + viewkey;
-        console.log("尝试从中文站点获取: " + cnUrl);
+        const cnUrl = "https://cn.pornhub.com/view_video.php?viewkey=" + viewkey;
+        const cnResponse = await Widget.http.get(cnUrl, { headers });
 
-        try {
-            const cnResponse = await Widget.http.get(cnUrl, {
-                headers: {
-                    "User-Agent": headers["User-Agent"],
-                    "Accept-Language": headers["Accept-Language"],
-                    "Cache-Control": headers["Cache-Control"],
-                    "Pragma": headers["Pragma"],
-                    "Referer": "https://cn.pornhub.com/",
-                    "Host": "cn.pornhub.com"
-                }
-            });
-
-            if (cnResponse && cnResponse.data) {
-                var m3u8Data = extractM3u8FromHtml(cnResponse.data);
-                if (m3u8Data) {
-                    m3u8Data.source = 'cn';
-                    console.log("从中文站点获取成功，质量: " + m3u8Data.quality);
-                    return m3u8Data;
-                }
-            }
-        } catch (cnError) {
-            console.log("中文站点请求失败: " + cnError.message);
-        }
-
-        // 如果中文站点失败，尝试国际站点
-        var wwwUrl = "https://www.pornhub.com/view_video.php?viewkey=" + viewkey;
-        console.log("尝试从国际站点获取: " + wwwUrl);
-
-        const wwwResponse = await Widget.http.get(wwwUrl, {
-            headers: {
-                "User-Agent": headers["User-Agent"],
-                "Accept-Language": headers["Accept-Language"],
-                "Cache-Control": headers["Cache-Control"],
-                "Pragma": headers["Pragma"],
-                "Referer": "https://www.pornhub.com/",
-                "Host": "www.pornhub.com"
-            }
-        });
-
-        if (wwwResponse && wwwResponse.data) {
-            var m3u8Data = extractM3u8FromHtml(wwwResponse.data);
+        if (cnResponse && cnResponse.data) {
+            var m3u8Data = extractM3u8FromHtml(cnResponse.data);
             if (m3u8Data) {
-                m3u8Data.source = 'www';
-                console.log("从国际站点获取成功，质量: " + m3u8Data.quality);
+                m3u8Data.source = 'cn';
                 return m3u8Data;
             }
         }
 
-        throw new Error("无法从任何站点获取视频播放链接");
+        throw new Error("无法从 cn.pornhub.com 获取视频播放链接");
     } catch (error) {
-        console.log("获取视频 " + viewkey + " 的播放链接失败: " + error.message);
+        console.log("getVideoM3u8Link error: " + error.message);
         throw error;
     }
 }
 
-// 检测页面分页信息 - 减少代码冗余
+
+// 检测页面分页信息
 function detectPagination(htmlContent, requestedPage) {
     // 初始化页码
     var page = Math.max(1, Number(requestedPage) || 1);
@@ -830,20 +1089,13 @@ function getUserUploads(params) {
                 if (!pageTitle.includes(params.username)) {
                     console.log("警告：页面标题 \"" + pageTitle + "\" 可能不包含艺人名称 \"" + params.username + "\"");
                 }
-
-                // 提取视频列表
                 var videos = [];
-                var processedViewkeys = {}; // 用于去重
-
-                // 尝试找到视频项 - 排除#headerMenuContainer下的非目标用户视频
+                var processedViewkeys = {};
                 var allVideoItems = $(".videoblock, .videoBox, .pcVideoListItem");
                 var videoItems = allVideoItems.filter(function () {
                     return !$(this).closest('#headerMenuContainer').length;
                 });
-
                 console.log("找到 " + videoItems.length + " 个视频项（排除headerMenuContainer后）");
-
-                // 如果找不到，尝试其他可能的选择器
                 if (!videoItems.length) {
                     allVideoItems = $("[data-video-vkey], [data-id], a[href*='viewkey=']").closest("li, div.videoblock, div.videoBox");
                     videoItems = allVideoItems.filter(function () {
@@ -851,35 +1103,22 @@ function getUserUploads(params) {
                     });
                     console.log("使用备选选择器找到 " + videoItems.length + " 个视频项");
                 }
-
-                // 如果找不到任何视频项
                 if (!videoItems.length) {
                     console.log("未找到任何视频项。可能是页面结构已变化或该艺人未上传视频。");
-                    resolve([]); // 返回空数组表示没有视频
+                    resolve([]);
                     return;
                 }
-
-                // 处理每个视频项
                 videoItems.each(function (index, element) {
                     try {
-                        // 提取viewkey
                         var viewkey = extractViewkey($, element);
                         if (!viewkey) {
-                            return; // 跳过无效项
+                            return;
                         }
-
-                        // 检查是否已处理过该viewkey，避免重复添加
                         if (processedViewkeys[viewkey]) {
                             return;
                         }
-
-                        // 提取视频信息
                         var videoInfo = extractVideoInfo($, element, viewkey);
-
-                        // 添加到结果数组
                         videos.push(videoInfo);
-
-                        // 添加到已处理集合
                         processedViewkeys[viewkey] = true;
 
                     } catch (error) {
@@ -901,59 +1140,325 @@ function getUserUploads(params) {
     });
 }
 
-// 加载视频详情函数 - 由播放器系统管理缓存
+// 获取视频列表
+async function getVideos(originalParams = {}) {
+    // 参数解包，保证不会undefined
+    const params = { ...originalParams };
+    const pageType = params.pageType || "";     // "cm" 最新 "ht" 热播 "mv" 最多观看 "tr" 最高评分
+    const c = params.c || "";                   // 分类id（"teen"为特殊18-25岁）
+    const cc = params.country || "";            // 国家代码（只在mv、ht下有效且不能为world）
+    const page = params.page || 1;
+    const hd = params.hd || "";                 // 高清参数，1为高清，其它为空
+    const sort_by = params.sort_by || "";       // 时间范围参数，仅mv/tr下有效
+    const p = params.p || ""; // 平台类型参数
+
+    let url = "";
+
+    // 1. 最新视频
+    if (pageType === "cm") {
+        if (c === "teen") {
+            url = `https://cn.pornhub.com/categories/teen?o=cm&page=${page}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        } else {
+            url = `https://cn.pornhub.com/video?o=cm&page=${page}`;
+            if (c) url += `&c=${c}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        }
+    }
+    // 2. 热播视频
+    else if (pageType === "ht") {
+        if (c === "teen") {
+            url = `https://cn.pornhub.com/categories/teen?o=ht&page=${page}`;
+            if (cc && cc !== "world") url += `&cc=${cc}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        } else {
+            url = `https://cn.pornhub.com/video?o=ht&page=${page}`;
+            if (c) url += `&c=${c}`;
+            if (cc && cc !== "world") url += `&cc=${cc}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        }
+    }
+    // 3. 最多观看
+    else if (pageType === "mv") {
+        if (c === "teen") {
+            url = `https://cn.pornhub.com/categories/teen?o=mv&page=${page}`;
+            if (sort_by) url += `&t=${sort_by}`;
+            if (cc && cc !== "world") url += `&cc=${cc}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        } else {
+            url = `https://cn.pornhub.com/video?o=mv&page=${page}`;
+            if (c) url += `&c=${c}`;
+            if (sort_by) url += `&t=${sort_by}`;
+            if (cc && cc !== "world") url += `&cc=${cc}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        }
+    }
+    // 4. 最高评分
+    else if (pageType === "tr") {
+        if (c === "teen") {
+            url = `https://cn.pornhub.com/categories/teen?o=tr&page=${page}`;
+            if (sort_by) url += `&t=${sort_by}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        } else {
+            url = `https://cn.pornhub.com/video?o=tr&page=${page}`;
+            if (c) url += `&c=${c}`;
+            if (sort_by) url += `&t=${sort_by}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        }
+    }
+    // 5. 最新精选
+    else if (pageType === "latestFeatured") {
+
+        if (c === "teen") {
+            url = `https://cn.pornhub.com/categories/teen?page=${page}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        } else {
+            url = `https://cn.pornhub.com/video?page=${page}`;
+            if (c) url += `&c=${c}`;
+            if (hd === "1") url += `&hd=1`;
+            if (p) url += `&p=${p}`;
+        }
+    }
+    // 6. 其它类型兜底
+    else {
+        url = `https://cn.pornhub.com/video?o=${pageType}&page=${page}`;
+        if (c) url += `&c=${c}`;
+        if (hd === "1") url += `&hd=1`;
+        if (p) url += `&p=${p}`;
+    }
+
+    console.log("最终拼接的URL:", url);
+
+    try {
+        const response = await Widget.http.get(url, {
+            headers: {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+            }
+        });
+
+        const htmlContent = response.data;
+        const $ = Widget.html.load(htmlContent);
+
+        const videoSelector = $(".pcVideoListItem.js-pop.videoblock.videoBox").length
+            ? ".pcVideoListItem.js-pop.videoblock.videoBox"
+            : ".pcVideoListItem, .videoblock, .videoBox";
+
+        const items = [];
+        $(videoSelector).each(function () {
+            const $item = $(this);
+
+            let vkey = $item.attr('data-video-vkey')
+                || $item.attr('data-id')
+                || ($item.find("a[href*='viewkey=']").attr("href") || "").match(/viewkey=([^&]+)/)?.[1];
+            if (!vkey) return;
+
+            const title = $item.find(".title a").attr("title")
+                || $item.find(".title").text().trim();
+            let link = $item.find(".title a").attr("href") || "";
+            if (link && !/^https?:\/\//.test(link)) {
+                link = "https://cn.pornhub.com" + link;
+            }
+
+            const img = $item.find("img");
+            const coverUrl = img.attr("src") || img.attr("data-thumb") || img.attr("data-src") || "";
+            const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
+            const durationText = $item.find(".duration, .videoDuration").text().trim();
+
+            items.push({
+                id: vkey,
+                type: "link",
+                title: title,
+                coverUrl: coverUrl,
+                previewUrl: previewUrl,
+                durationText: durationText,
+                link: link
+            });
+        });
+
+        if (items.length === 0) {
+            throw new Error("页面结构可能已变，未提取到视频数据。");
+        }
+
+        return items;
+
+    } catch (error) {
+        console.error("获取视频失败:", error.message);
+        throw new Error("获取视频失败: " + error.message);
+    }
+}
+
+
+async function getVideosByLanguage(originalParams = {}) {
+    const params = { ...originalParams };
+    const language = params.language || "chinese";
+    const p = params.p || "";
+    const hd = params.hd || "";
+    const sort_by = params.sort_by || "";
+    const page = params.page || 1;
+
+    // 拼接基础url
+    let url = `https://cn.pornhub.com/language/${encodeURIComponent(language)}?page=${page}`;
+    if (p) url += `&p=${p}`;
+    if (hd === "1") url += `&hd=1`;
+    if (sort_by) url += `&o=${sort_by}`;  
+
+    console.log("按语言筛选拼接URL:", url);
+
+    try {
+        const response = await Widget.http.get(url, {
+            headers: {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+            }
+        });
+
+        const htmlContent = response.data;
+        const $ = Widget.html.load(htmlContent);
+
+        // 选择器同前
+        const videoSelector = $(".pcVideoListItem.js-pop.videoblock.videoBox").length
+            ? ".pcVideoListItem.js-pop.videoblock.videoBox"
+            : ".pcVideoListItem, .videoblock, .videoBox";
+
+        const items = [];
+        $(videoSelector).each(function () {
+            const $item = $(this);
+            let vkey = $item.attr('data-video-vkey')
+                || $item.attr('data-id')
+                || ($item.find("a[href*='viewkey=']").attr("href") || "").match(/viewkey=([^&]+)/)?.[1];
+            if (!vkey) return;
+
+            const title = $item.find(".title a").attr("title")
+                || $item.find(".title").text().trim();
+            let link = $item.find(".title a").attr("href") || "";
+            if (link && !/^https?:\/\//.test(link)) {
+                link = "https://cn.pornhub.com" + link;
+            }
+
+            const img = $item.find("img");
+            const coverUrl = img.attr("src") || img.attr("data-thumb") || img.attr("data-src") || "";
+            const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
+            const durationText = $item.find(".duration, .videoDuration").text().trim();
+
+            items.push({
+                id: vkey,
+                type: "link",
+                title: title,
+                coverUrl: coverUrl,
+                previewUrl: previewUrl,
+                durationText: durationText,
+                link: link
+            });
+        });
+
+        if (items.length === 0) {
+            throw new Error("页面结构可能已变，未提取到视频数据。");
+        }
+
+        return items;
+
+    } catch (error) {
+        console.error("获取按语言筛选视频失败:", error.message);
+        throw new Error("获取按语言筛选视频失败: " + error.message);
+    }
+}
+
+
+
+// 加载视频详情函数
 async function loadDetail(link) {
     try {
         console.log(`开始加载视频详情: ${link}`);
 
-        // 从link中提取viewkey
+        // 1. 提取 viewkey
         const viewkeyMatch = link.match(/viewkey=([^&]+)/);
         if (!viewkeyMatch || !viewkeyMatch[1]) {
             console.log(`错误: 无效的视频链接 ${link}`);
             throw new Error("无效的视频链接");
         }
-
         const viewkey = viewkeyMatch[1];
 
-        // 获取m3u8链接，不做缓存处理，由播放器系统管理
-        const m3u8Data = await getVideoM3u8Link(viewkey);
+        // 2. 构建详情页链接并获取HTML
+        const fullVideoUrl = `https://cn.pornhub.com/view_video.php?viewkey=${viewkey}`;
+        const response = await Widget.http.get(fullVideoUrl, {
+            headers: {
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            }
+        });
+        const htmlContent = response.data;
+        const $ = Widget.html.load(htmlContent);
 
+        // 3. 获取主视频m3u8播放链接
+        const m3u8Data = await getVideoM3u8Link(viewkey);
         if (!m3u8Data || !m3u8Data.videoUrl) {
             console.log(`错误: 无法获取视频播放链接`);
             throw new Error("无法获取视频播放链接");
         }
 
-        // 构建完整的视频URL
-        const fullVideoUrl = `https://cn.pornhub.com/view_video.php?viewkey=${viewkey}`;
+        // 4. 推荐视频区块采集，限制最多10条
+        const recommendedVideos = [];
+        const recommendedItems = $(".videos.underplayer-thumbs.fixedSizeThumbsVideosListing li[data-video-vkey]");
+        recommendedItems.slice(0, 10).each(function (i, element) {
+            const $element = $(element);
+            const vkey = extractViewkey($, element);
+            if (!vkey) return;
+            // 极简字段采集
+            const title = $element.find('.title').text().trim() || $element.find('a[title]').attr('title') || '';
+            const img = $element.find('img');
+            const coverUrl = img.attr('src') || img.attr('data-thumb') || img.attr('data-src') || '';
+            const previewUrl = img.attr('data-mediabook') || img.attr('data-preview') || img.attr('data-webm') || '';
+            const durationText = $element.find('.duration, .videoDuration').text().trim();
+            recommendedVideos.push({
+                id: vkey,
+                type: "link",
+                title: title,
+                coverUrl: coverUrl,
+                previewUrl: previewUrl,
+                durationText: durationText,
+                link: `https://cn.pornhub.com/view_video.php?viewkey=${vkey}`
+            });
+        });
+        console.log("推荐区块采集数量:", recommendedVideos.length);
 
-        // 返回Forward兼容的详情对象
+        // 5. 返回 ForwardWidget 规范详情对象
         const result = {
             id: viewkey,
-            type: "detail", // 必须是detail类型
+            type: "detail",
             videoUrl: m3u8Data.videoUrl,
             customHeaders: {
                 "Referer": fullVideoUrl,
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             },
             quality: m3u8Data.quality,
             title: "视频播放",
             duration: 0,
-            formats: m3u8Data.formats
+            formats: m3u8Data.formats,
+            childItems: recommendedVideos
         };
 
-        console.log(`视频详情加载成功: ${JSON.stringify({ id: result.id, quality: result.quality, source: m3u8Data.source })}`);
+        console.log(`视频详情加载成功: ${JSON.stringify({ id: result.id, quality: result.quality, recommendCount: recommendedVideos.length })}`);
         return result;
     } catch (error) {
-        console.log(`loadDetail执行失败: ${error.message}`);
+        console.log(`loadDetail 执行失败: ${error.message}`);
         throw error;
     }
 }
 
-// 导出模块
+
 module.exports = {
     metadata: WidgetMetadata,
     getFavorites: getFavorites,
     getUserUploads: getUserUploads,
+    getVideos: getVideos,
     loadDetail: loadDetail
 };
-
