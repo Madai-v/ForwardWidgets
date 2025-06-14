@@ -1,13 +1,60 @@
 WidgetMetadata = {
     id: "Pornhub",
     title: "Pornhub",
-    version: "1.0.1",
+    version: "1.0.2",
     requiredVersion: "0.0.1",
     description: "在线观看Pornhub",
     author: "海带",
     site: "https://github.com/Madai-v/ForwardWidgets",
-    detailCacheDuration: 600,
+    detailCacheDuration: 1200,
     modules: [
+        {
+            id: "searchKeyword",
+            title: "🔍 全站搜索",
+            functionName: "getSearchResults",
+            cacheDuration: 180,
+            params: [
+                {
+                    name: "search_query",
+                    title: "搜索关键词",
+                    type: "input",
+                    description: "请输入要搜索的关键词",
+                    value: ""
+                },
+                {
+                    name: "search_type",
+                    title: "是否开启精准搜索（作者名或视频标题 包含/等于 关键词）",
+                    type: "enumeration",
+                    description: "是否开启相对精准搜索",
+                    value: "",
+                    enumOptions: [
+                        { title: "关闭", value: "no" },
+                        { title: "开启", value: "yes" },
+
+                    ]
+                },
+                {
+                    name: "sort_by",
+                    title: "排序方式",
+                    type: "enumeration",
+                    description: "视频排序方式",
+                    value: "",
+                    enumOptions: [
+                        { title: "最相关", value: "" },
+                        { title: "最新发布", value: "new" },
+                        { title: "最多播放", value: "views" },
+                        { title: "最高评分", value: "rating" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    description: "页码",
+                    value: "1"
+                }
+            ]
+        },
         {
             id: "favorites",
             title: "❤️ 我的最爱",
@@ -18,7 +65,7 @@ WidgetMetadata = {
                     name: "username",
                     title: "用户名",
                     type: "input",
-                    description: "你的Pornhub用户名",
+                    description: "填入你的Pornhub用户名",
                     value: "",
                     placeholders: [
                         {
@@ -39,11 +86,11 @@ WidgetMetadata = {
                     title: "排序方式",
                     type: "enumeration",
                     description: "排序方式",
-                    value: "default",
+                    value: "new",
                     enumOptions: [
                         {
                             title: "最新发布",
-                            value: "default"
+                            value: "new"
                         },
                         {
                             title: "最多播放",
@@ -67,23 +114,24 @@ WidgetMetadata = {
                     name: "username",
                     title: "艺人名称",
                     type: "enumeration",
-                    description: "Pornhub艺人名称",
+                    description: "支持全部类型",
                     belongTo: {
                         paramName: "sort_by",
-                        value: ["default", "views", "rating"],
+                        value: ["new", "views", "rating"],
                     },
-                    enumOptions: [{ 'title': 'HongKongDoll', 'value': 'HongKongDoll' }, { 'title': '798DS', 'value': '798DS' }, { 'title': 'aiwanxiongxiong', 'value': 'aiwanxiongxiong' }, { 'title': 'andmlove', 'value': 'andmlove' }, { 'title': 'ano ano chan', 'value': 'ano ano chan' }, { 'title': 'bibi Fluffy', 'value': 'bibi Fluffy' }, { 'title': 'CandyKissVip', 'value': 'CandyKissVip' }, { 'title': 'Chinese Bunny', 'value': 'Chinese Bunny' }, { 'title': 'DemiFairyTW', 'value': 'DemiFairyTW' }, { 'title': 'Elle Lee', 'value': 'Elle Lee' }, { 'title': 'Eve', 'value': 'Eve' }, { 'title': 'fortunecutie', 'value': 'fortunecutie' }, { 'title': 'LIs Evans', 'value': 'LIs Evans' }, { 'title': 'loliiiiipop99', 'value': 'loliiiiipop99' }, { 'title': 'Makissse', 'value': 'Makissse' }, { 'title': 'nan12138', 'value': 'nan12138' }, { 'title': 'Nana_taipei', 'value': 'Nana_taipei' }, { 'title': 'Nuomibaby', 'value': 'Nuomibaby' }, { 'title': 'papaxmama', 'value': 'papaxmama' }, { 'title': 'Qiobnxingcaiii', 'value': 'Qiobnxingcaiii' }, { 'title': 'SakuraCandy', 'value': 'SakuraCandy' }, { 'title': 'sskok16', 'value': 'sskok16' }, { 'title': 'SSR Peach', 'value': 'SSR Peach' }, { 'title': 'thelittlejuicer', 'value': 'thelittlejuicer' }, { 'title': 'TLMS_SVJ', 'value': 'TLMS_SVJ' }, { 'title': 'twtutu', 'value': 'twtutu' }, { 'title': 'Vita Won', 'value': 'Vita Won' }, { 'title': 'Yuqiao Chen', 'value': 'Yuqiao Chen' }, { 'title': 'YuzuKitty', 'value': 'YuzuKitty' }]
+                    enumOptions: [{ title: 'HongKongDoll', value: 'HongKongDoll', type: 'model' }, { title: '麻豆传媒', value: 'asiam', type: 'channels' }, { title: '麻豆-LiRongRong', value: 'Li Rong Rong', type: 'pornstar' }, { title: '798DS', value: '798DS', type: 'model' }, { title: 'aiwanxiongxiong', value: 'aiwanxiongxiong', type: 'model' }, { title: 'andmlove', value: 'andmlove', type: 'model' }, { title: 'ano ano chan', value: 'ano ano chan', type: 'model' }, { title: 'bibi Fluffy', value: 'bibi Fluffy', type: 'model' }, { title: 'CandyKissVip', value: 'CandyKissVip', type: 'model' }, { title: 'Chinese Bunny', value: 'Chinese Bunny', type: 'model' }, { title: 'DemiFairyTW', value: 'DemiFairyTW', type: 'model' }, { title: 'Elle Lee', value: 'Elle Lee', type: 'model' }, { title: 'Eve', value: 'Eve', type: 'model' }, { title: 'fortunecutie', value: 'fortunecutie', type: 'model' }, { title: 'LIs Evans', value: 'LIs Evans', type: 'model' }, { title: 'loliiiiipop99', value: 'loliiiiipop99', type: 'model' }, { title: 'Makissse', value: 'Makissse', type: 'model' }, { title: 'nan12138', value: 'nan12138', type: 'model' }, { title: 'Nana_taipei', value: 'Nana_taipei', type: 'model' }, { title: 'Nuomibaby', value: 'Nuomibaby', type: 'model' }, { title: 'papaxmama', value: 'papaxmama', type: 'model' }, { title: 'Qiobnxingcaiii', value: 'Qiobnxingcaiii', type: 'model' }, { title: 'SakuraCandy', value: 'SakuraCandy', type: 'model' }, { title: 'sskok16', value: 'sskok16', type: 'model' }, { title: 'SSR Peach', value: 'SSR Peach', type: 'model' }, { title: 'thelittlejuicer', value: 'thelittlejuicer', type: 'model' }, { title: 'TLMS_SVJ', value: 'TLMS_SVJ', type: 'model' }, { title: 'twtutu', value: 'twtutu', type: 'model' }, { title: 'Vita Won', value: 'Vita Won', type: 'model' }, { title: 'Yuqiao Chen', value: 'Yuqiao Chen', type: 'model' }, { title: 'YuzuKitty', value: 'YuzuKitty', type: 'model' },
+                    ]
                 },
                 {
                     name: "sort_by",
                     title: "排序方式",
                     type: "enumeration",
                     description: "排序方式",
-                    value: "default",
+                    value: "new",
                     enumOptions: [
                         {
                             title: "最新发布",
-                            value: "default"
+                            value: "new"
                         },
                         {
                             title: "最多播放",
@@ -94,6 +142,14 @@ WidgetMetadata = {
                             value: "rating"
                         }
                     ]
+                },
+                {
+                    name: "logo",
+                    title: "标识符",
+                    type: "constant",
+                    description: "区分功能",
+                    value: "yx",
+                    type: "constant"
                 },
                 {
                     name: "page",
@@ -106,40 +162,39 @@ WidgetMetadata = {
         },
         {
             id: "premiumArtists",
-            title: "🔍 搜索艺人",
+            title: "👠 搜索艺人",
             functionName: "getUserUploads",
-            cacheDuration: 600,
+            cacheDuration: 300,
             params: [
+                {
+                    name: "user_type",
+                    title: "艺人类型",
+                    type: "enumeration",
+                    description: "选择艺人类型",
+                    value: "model",
+                    enumOptions: [
+                        { title: "模特", value: "model" },
+                        { title: "频道", value: "channels" },
+                        { title: "明星", value: "pornstar" }
+                    ]
+                },
                 {
                     name: "username",
                     title: "艺人名称",
                     type: "input",
-                    description: "Pornhub艺人名称",
-                    value: "",
-                    placeholders: [
-                        {
-                            title: "示例",
-                            value: "Chinese Bunny"
-                        }
-                    ]
-                },
-                {
-                    name: "page",
-                    title: "页码",
-                    type: "page",
-                    description: "艺人视频页码",
-                    value: "1"
+                    description: "支持全部类型",
+                    value: ""
                 },
                 {
                     name: "sort_by",
                     title: "排序方式",
                     type: "enumeration",
                     description: "视频排序方式",
-                    value: "default",
+                    value: "new",
                     enumOptions: [
                         {
                             title: "最新发布",
-                            value: "default"
+                            value: "new"
                         },
                         {
                             title: "最多播放",
@@ -150,6 +205,53 @@ WidgetMetadata = {
                             value: "rating"
                         }
                     ]
+                },
+                {
+                    name: "logo",
+                    title: "标识符",
+                    type: "constant",
+                    description: "区分功能",
+                    value: "ss",
+                    type: "constant"
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    description: "艺人视频页码",
+                    value: "1"
+                }
+            ]
+        },
+        {
+            id: "recommended",
+            title: "🎬 推荐视频",
+            functionName: "getRecommendedVideos",
+            cacheDuration: 60,
+            params: [
+                {
+                    name: "cookie",
+                    title: "登录Cookie",
+                    type: "input",
+                    value: "",
+                    description: "未填写情况下非个性化推荐，登录Pornhub推荐页获取"
+                },
+                {
+                    name: "sort_by",
+                    title: "推荐逻辑",
+                    description: "默认最相关",
+                    type: "enumeration",
+                    value: "",
+                    enumOptions: [
+                        { title: "最相关", value: "" },
+                        { title: "最新", value: "time" }
+                    ]
+                },
+                {
+                    name: "page",
+                    title: "页码",
+                    type: "page",
+                    value: "1"
                 }
             ]
         },
@@ -164,6 +266,7 @@ WidgetMetadata = {
                     title: "视频语言",
                     type: "enumeration",
                     value: "chinese",
+                    description: "默认中文",
                     enumOptions: [
                         { title: "中文", value: "chinese" },
                         { title: "日语", value: "japanese" },
@@ -182,6 +285,7 @@ WidgetMetadata = {
                     name: "p",
                     title: "制作平台类型",
                     type: "enumeration",
+                    description: "默认全部",
                     value: "",
                     enumOptions: [
                         { title: "全部", value: "" },
@@ -193,6 +297,7 @@ WidgetMetadata = {
                     name: "hd",
                     title: "分辨率",
                     type: "enumeration",
+                    description: "全部",
                     value: "",
                     enumOptions: [
                         { title: "全部", value: "" },
@@ -203,10 +308,11 @@ WidgetMetadata = {
                     name: "sort_by",
                     title: "排序方式",
                     type: "enumeration",
+                    description: "最新精选",
                     value: "",
                     enumOptions: [
-                        { title: "热播", value: "ht" },
                         { title: "最新精选", value: "" },
+                        { title: "热播", value: "ht" },
                         { title: "最多观看", value: "mv" },
                         { title: "最高评分", value: "tr" },
                         { title: "最新视频", value: "cm" }
@@ -237,6 +343,7 @@ WidgetMetadata = {
                     name: "p",
                     title: "出品类型",
                     type: "enumeration",
+                    description: "全部",
                     value: "",
                     enumOptions: [
                         { title: "全部", value: "" },
@@ -428,7 +535,7 @@ WidgetMetadata = {
         },
         {
             id: "latestFeatured",
-            title: "🎯 最新精选",
+            title: "💎 最新精选",
             functionName: "getVideos",
             cacheDuration: 600,
             params: [
@@ -644,7 +751,7 @@ function extractVideoStats($, element) {
     return { views: views, favorites: favorites, uploadDate: uploadDate };
 }
 
-// 从视频元素提取通用信息 - 减少代码冗余
+// 从视频元素提取通用信息
 function extractVideoInfo($, element, viewkey) {
     var $element = $(element);
 
@@ -755,39 +862,9 @@ function extractM3u8FromHtml(html) {
     }
 }
 
-// 获取视频m3u8播放链接
-async function getVideoM3u8Link(viewkey) {
-    try {
-        // 统一请求头
-        var headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-            "Cache-Control": "no-cache",
-            "Pragma": "no-cache",
-            "Referer": "https://cn.pornhub.com/",
-            "Host": "cn.pornhub.com"
-        };
-
-        const cnUrl = "https://cn.pornhub.com/view_video.php?viewkey=" + viewkey;
-        const cnResponse = await Widget.http.get(cnUrl, { headers });
-
-        if (cnResponse && cnResponse.data) {
-            var m3u8Data = extractM3u8FromHtml(cnResponse.data);
-            if (m3u8Data) {
-                m3u8Data.source = 'cn';
-                return m3u8Data;
-            }
-        }
-
-        throw new Error("无法从 cn.pornhub.com 获取视频播放链接");
-    } catch (error) {
-        console.log("getVideoM3u8Link error: " + error.message);
-        throw error;
-    }
-}
 
 
-// 检测页面分页信息
+// 检测页面分页信息（用于getFavorites）
 function detectPagination(htmlContent, requestedPage) {
     // 初始化页码
     var page = Math.max(1, Number(requestedPage) || 1);
@@ -836,7 +913,143 @@ function getSortParam(sort_by) {
     }
 }
 
-// 获取收藏列表视频
+// 获取作者
+function extractAuthor($, element) {
+    let author = "";
+    // 1. 优先 .usernameWrap a，无title属性也能取文本
+    let authorA = $(element).find('.usernameWrap a');
+    if (authorA.length) {
+        author = authorA.attr('title') ? authorA.attr('title').trim() : authorA.text().trim();
+    } else {
+        // 2. 兼容 .usernameBadgesWrapper a[title]
+        let authorA2 = $(element).find('.usernameBadgesWrapper a[title]');
+        if (authorA2.length) {
+            author = authorA2.attr('title')?.trim() || authorA2.text().trim();
+        }
+    }
+    return author;
+}
+
+// 搜索功能主函数
+async function getSearchResults(params) {
+    const searchQuery = params.search_query || '';
+    const page = Math.max(1, Number(params.page) || 1);
+    const sortBy = params.sort_by || "";
+    const searchType = params.search_type || "no";  // 获取是否开启精准搜索的设置
+
+    const formattedQuery = searchQuery.trim().replace(/[\s\-]+/g, '+');
+
+    let baseUrl = `https://cn.pornhub.com/video/search?search=${formattedQuery}`;
+    if (sortBy === 'new') baseUrl += '&o=mr';
+    else if (sortBy === 'views') baseUrl += '&o=mv';
+    else if (sortBy === 'rating') baseUrl += '&o=tr';
+    if (page > 1) baseUrl += `&page=${page}`;
+
+    const headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/137.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
+    };
+
+    console.log(`[getSearchResults] 请求搜索页面: ${baseUrl}`);
+
+    try {
+        const response = await Widget.http.get(baseUrl, { headers });
+
+        if (response && response.data) {
+            console.log('[getSearchResults] 搜索页面加载成功');
+            const $ = Widget.html.load(response.data);  // ✅ 正确加载页面
+            if (!$) {
+                console.error('[getSearchResults] 无法加载页面内容');
+                return [];
+            }
+
+            const $list = $("li.pcVideoListItem.js-pop.videoblock.videoBox.videoBoxesSearch");
+            if ($list.length > 0) {
+                console.log(`[getSearchResults] 搜索结果存在视频，返回并解析该页`);
+                return parseSearchResults($, $list, searchQuery, searchType); // 传递 searchQuery 和 searchType
+            } else {
+                console.log(`[getSearchResults] 没有找到视频，返回空结果。`);
+                return [];
+            }
+        } else {
+            console.log(`[getSearchResults] 页面加载失败`);
+            throw new Error("页面加载失败");
+        }
+    } catch (e) {
+        console.error(`请求错误: ${e.message}`);
+        throw e;
+    }
+}
+
+// 搜索功能解析函数
+function parseSearchResults($, $list, searchQuery, searchType) {
+    const result = [];
+    console.log(`解析搜索结果，匹配总项数: ${$list.length}`);
+
+    $list.each((i, el) => {
+        const $item = $(el);
+
+        // 提取视频 ID
+        const vkey = $item.find("a[href*='viewkey=']").attr("href")?.match(/viewkey=([^&]+)/)?.[1];
+        if (!vkey) {
+            console.log("未找到 vkey, 跳过");
+            return; // 如果没有找到视频ID，跳过该项
+        }
+
+        // 提取视频标题
+        const title = $item.find(".title a").attr("title") ||
+            $item.find(".title a").text() ||
+            $item.find(".title").text().trim();
+
+        // 提取作者名
+        const author = $item.find('.usernameWrap a').text().trim();
+        // console.log(`提取到的标题: ${title}, 作者: ${author}`);
+
+        // 如果开启精准搜索，先进行筛选
+        if (searchType === 'yes' && !filterExactSearchResults(title, author, searchQuery)) {
+            // console.log(`标题 ${title} 或者 作者 ${author} 不匹配，跳过`);
+            return; // 如果不匹配，跳过该项
+        } else {
+            console.log(`✅[精准搜索] 匹配成功: 标题 ${title}, 作者 ${author}`);
+        }
+
+        // 提取其他数据并添加到结果中
+        let link = $item.find(".title a").attr("href") || $item.find("a[href*='viewkey=']").attr("href") || "";
+        if (link && !/^https?:\/\//.test(link)) {
+            link = "https://cn.pornhub.com" + link;
+        }
+
+        const img = $item.find("img");
+        const coverUrl = img.attr("src") || img.attr("data-src") || img.attr("data-thumb");
+        const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
+        const durationText = $item.find(".duration, .videoDuration").text().trim();
+
+        result.push({
+            id: vkey,
+            type: "link",
+            title: title,
+            coverUrl: coverUrl,
+            previewUrl: previewUrl,
+            durationText: durationText,
+            link: link
+        });
+    });
+
+    console.log(`解析到的视频数: ${result.length}`);
+    return result;
+}
+
+// 精准搜索过滤函数：对视频标题和作者进行匹配
+function filterExactSearchResults(title, author, searchQuery) {
+    const query = searchQuery.toLowerCase();
+    return title.toLowerCase().includes(query) || author.toLowerCase().includes(query);  // 判断标题或作者是否包含搜索关键词
+}
+
+
+
+
+// 获取我的最爱列表视频
 function getFavorites(params) {
     return new Promise(function (resolve, reject) {
         try {
@@ -974,6 +1187,9 @@ function getFavorites(params) {
                         // 提取视频信息
                         var videoInfo = extractVideoInfo($, element, viewkey);
 
+                        const author = extractAuthor($, element);
+                        videoInfo.description = author ? `作者：${author}` : "";
+
                         // 添加到结果数组
                         videos.push(videoInfo);
 
@@ -999,148 +1215,396 @@ function getFavorites(params) {
     });
 }
 
-// 获取用户上传的视频
-function getUserUploads(params) {
-    return new Promise(function (resolve, reject) {
-        try {
-            console.log("开始获取艺人上传视频: " + JSON.stringify(params));
 
-            // 参数验证
-            if (!params.username) {
-                console.log("错误: 未提供艺人名称");
-                reject(new Error("请提供艺人名称"));
-                return;
-            }
+//功能分流
+async function getUserUploads(params = {}) {
+    const logo = params.logo; // "yx"=优选艺人, "ss"=搜索艺人
 
-            // 构建基础URL - 固定使用model格式
-            var baseUrl = "https://cn.pornhub.com/model/" + params.username + "/videos";
+    if (logo === "yx") {
+        // 1. 优选艺人模式：params.username是type，查表拿真实用户名
+        const enumOptions = [{ title: 'HongKongDoll', value: 'HongKongDoll', type: 'model' }, { title: '麻豆传媒', value: 'asiam', type: 'channels' }, { title: '麻豆-LiRongRong', value: 'Li Rong Rong', type: 'pornstar' }, { title: '798DS', value: '798DS', type: 'model' }, { title: 'aiwanxiongxiong', value: 'aiwanxiongxiong', type: 'model' }, { title: 'andmlove', value: 'andmlove', type: 'model' }, { title: 'ano ano chan', value: 'ano ano chan', type: 'model' }, { title: 'bibi Fluffy', value: 'bibi Fluffy', type: 'model' }, { title: 'CandyKissVip', value: 'CandyKissVip', type: 'model' }, { title: 'Chinese Bunny', value: 'Chinese Bunny', type: 'model' }, { title: 'DemiFairyTW', value: 'DemiFairyTW', type: 'model' }, { title: 'Elle Lee', value: 'Elle Lee', type: 'model' }, { title: 'Eve', value: 'Eve', type: 'model' }, { title: 'fortunecutie', value: 'fortunecutie', type: 'model' }, { title: 'LIs Evans', value: 'LIs Evans', type: 'model' }, { title: 'loliiiiipop99', value: 'loliiiiipop99', type: 'model' }, { title: 'Makissse', value: 'Makissse', type: 'model' }, { title: 'nan12138', value: 'nan12138', type: 'model' }, { title: 'Nana_taipei', value: 'Nana_taipei', type: 'model' }, { title: 'Nuomibaby', value: 'Nuomibaby', type: 'model' }, { title: 'papaxmama', value: 'papaxmama', type: 'model' }, { title: 'Qiobnxingcaiii', value: 'Qiobnxingcaiii', type: 'model' }, { title: 'SakuraCandy', value: 'SakuraCandy', type: 'model' }, { title: 'sskok16', value: 'sskok16', type: 'model' }, { title: 'SSR Peach', value: 'SSR Peach', type: 'model' }, { title: 'thelittlejuicer', value: 'thelittlejuicer', type: 'model' }, { title: 'TLMS_SVJ', value: 'TLMS_SVJ', type: 'model' }, { title: 'twtutu', value: 'twtutu', type: 'model' }, { title: 'Vita Won', value: 'Vita Won', type: 'model' }, { title: 'Yuqiao Chen', value: 'Yuqiao Chen', type: 'model' }, { title: 'YuzuKitty', value: 'YuzuKitty', type: 'model' },
+        ];
+        const option = enumOptions.find(opt => opt.value === params.username);
+        if (!option) throw new Error("优选艺人未选中或无效");
+        const username = option.value;    // "HongKongDoll"等
+        const userType = option.type;     // "model"/"channels"/"pornstar"
+        return await doFetch(userType, username, params);
+    }
 
-            // 添加排序参数
-            var sortParam = getSortParam(params.sort_by);
-            if (sortParam) {
-                baseUrl += "?" + sortParam;
-            }
+    if (logo === "ss") {
+        // 2. 搜索艺人模式：params.user_type是类型，params.username是用户输入的名称
+        const userType = (params.user_type || "model").toLowerCase();
+        const username = (params.username || "").trim();
+        if (!username) throw new Error("请输入艺人名称");
+        // 下面和优选一样，类型分流
+        return await doFetch(userType, username, params);
+    }
 
-            console.log("基础URL: " + baseUrl);
-
-            // 首次请求（用于检测分页）
-            Widget.http.get(baseUrl, {
-                headers: {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                    "Referer": "https://cn.pornhub.com/"
-                }
-            }).then(function (firstPageResponse) {
-                // 检查响应
-                if (!firstPageResponse || !firstPageResponse.data) {
-                    console.log("错误: 获取艺人上传视频失败，无响应或响应无数据");
-                    reject(new Error("获取艺人上传视频失败，请检查网络连接或艺人名称是否正确"));
-                    return;
-                }
-
-                // 检查是否有地区限制
-                if (firstPageResponse.data.includes("As you may know, your elected officials") ||
-                    firstPageResponse.data.includes("Trust and Safety measures")) {
-                    console.log("错误: 检测到地区限制");
-                    reject(new Error("无法访问Pornhub，可能存在地区限制"));
-                    return;
-                }
-
-                // 检测分页信息
-                var pagination = detectPagination(firstPageResponse.data, params.page);
-                var page = pagination.page;
-
-                // 构建最终URL
-                var fullUrl = baseUrl;
-                if (page > 1) {
-                    // 如果已有排序参数，使用&连接页码参数，否则使用?
-                    fullUrl += (sortParam ? '&' : '?') + "page=" + page;
-                }
-
-                console.log("最终请求URL: " + fullUrl);
-
-                // 如果不是第1页，需要重新请求
-                var responsePromise;
-                if (page > 1) {
-                    responsePromise = Widget.http.get(fullUrl, {
-                        headers: {
-                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-                            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                            "Referer": "https://cn.pornhub.com/"
-                        }
-                    });
-                } else {
-                    responsePromise = Promise.resolve(firstPageResponse);
-                }
-
-                return responsePromise;
-            }).then(function (response) {
-                if (!response || !response.data) {
-                    console.log("错误: 获取页面失败");
-                    reject(new Error("获取艺人上传视频页面失败"));
-                    return;
-                }
-
-                // 解析HTML
-                var $ = Widget.html.load(response.data);
-
-                // 确认页面标题包含用户名
-                var pageTitle = $("title").text();
-                if (!pageTitle.includes(params.username)) {
-                    console.log("警告：页面标题 \"" + pageTitle + "\" 可能不包含艺人名称 \"" + params.username + "\"");
-                }
-                var videos = [];
-                var processedViewkeys = {};
-                var allVideoItems = $(".videoblock, .videoBox, .pcVideoListItem");
-                var videoItems = allVideoItems.filter(function () {
-                    return !$(this).closest('#headerMenuContainer').length;
-                });
-                console.log("找到 " + videoItems.length + " 个视频项（排除headerMenuContainer后）");
-                if (!videoItems.length) {
-                    allVideoItems = $("[data-video-vkey], [data-id], a[href*='viewkey=']").closest("li, div.videoblock, div.videoBox");
-                    videoItems = allVideoItems.filter(function () {
-                        return !$(this).closest('#headerMenuContainer').length;
-                    });
-                    console.log("使用备选选择器找到 " + videoItems.length + " 个视频项");
-                }
-                if (!videoItems.length) {
-                    console.log("未找到任何视频项。可能是页面结构已变化或该艺人未上传视频。");
-                    resolve([]);
-                    return;
-                }
-                videoItems.each(function (index, element) {
-                    try {
-                        var viewkey = extractViewkey($, element);
-                        if (!viewkey) {
-                            return;
-                        }
-                        if (processedViewkeys[viewkey]) {
-                            return;
-                        }
-                        var videoInfo = extractVideoInfo($, element, viewkey);
-                        videos.push(videoInfo);
-                        processedViewkeys[viewkey] = true;
-
-                    } catch (error) {
-                        console.log("处理视频项时出错: " + error.message);
-                    }
-                });
-
-                console.log("成功提取 " + videos.length + " 个艺人上传视频");
-
-                resolve(videos);
-            }).catch(function (error) {
-                console.log("获取艺人上传视频失败: " + error.message);
-                reject(error);
-            });
-        } catch (error) {
-            console.log("获取艺人上传视频失败: " + error.message);
-            reject(error);
-        }
-    });
+    throw new Error("未知入口，请检查logo参数");
 }
 
-// 获取视频列表
+// 公共 fetch 逻辑（类型分流解析）
+async function doFetch(type, username, params) {
+    const sortBy = params.sort_by || "new";
+    const page = Math.max(1, Number(params.page) || 1);
+
+    // 格式化用户名，替换空格为连字符
+    const formattedUsername = username.trim().replace(/\s+/g, "-");
+
+    // 拼接URL
+    let url = "";
+    if (type === "pornstar") {
+        // 1. 尝试请求 /videos/upload
+        let uploadUrl = `/pornstar/${encodeURIComponent(formattedUsername)}/videos/upload?o=mr${page > 1 ? `&page=${page}` : ''}`;
+        const headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/137.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
+        };
+
+        console.log(`[doFetch] 尝试请求明星上传页: ${uploadUrl}`);
+
+
+        // 构建完整URL
+        const fullUrl = `https://cn.pornhub.com${uploadUrl}`;
+
+        // 发送请求
+        const response = await Widget.http.get(fullUrl, { headers });
+        // 输出请求和响应信息
+        console.log(`HTTP状态码: ${response.statusCode}`);
+
+        // 如果上传页状态码为 200
+        if (response.statusCode === 200) {
+            const $ = Widget.html.load(response.data); // 解析HTML
+            const $list = $("ul#moreData.full-row-thumbs.videos.row-5-thumbs");
+
+            // 判断上传页是否存在视频列表
+            if ($list.length > 0 && $list.find("li.pcVideoListItem, .wrap.flexibleHeight").length > 0) {
+                console.log(`[doFetch] 上传页存在视频，返回并解析该页`);
+                return parsePornstarVideos(response.data); // 如果上传页存在，直接解析
+            } else {
+                console.log(`[doFetch] 上传页存在但无视频内容，准备降级到主页解析`);
+            }
+        }
+
+        // 如果上传页面存在但没有视频内容，降级请求主页
+        const homepageUrl = `https://cn.pornhub.com/pornstar/${encodeURIComponent(formattedUsername)}`;
+        const resp2 = await Widget.http.get(homepageUrl, { headers });
+        if (!resp2 || !resp2.data) throw new Error("明星主页无法获取");
+        return parsePornstarHomePage(resp2.data); // 请求主页并解析
+
+    } else if (type === "model") {
+        if (sortBy === "new") url = `/model/${encodeURIComponent(formattedUsername)}/videos?o=mr${page > 1 ? `&page=${page}` : ''}`;
+        else if (sortBy === "views") url = `/model/${encodeURIComponent(formattedUsername)}/videos?o=mv${page > 1 ? `&page=${page}` : ''}`;
+        else if (sortBy === "rating") url = `/model/${encodeURIComponent(formattedUsername)}/videos?o=tr${page > 1 ? `&page=${page}` : ''}`;
+        else url = `/model/${encodeURIComponent(formattedUsername)}/videos${page > 1 ? `?page=${page}` : ''}`;
+    } else if (type === "channels") {
+        if ((sortBy === "new" || sortBy === "default") && page === 1)
+            url = `/channels/${encodeURIComponent(formattedUsername)}`;
+        else if ((sortBy === "new" || sortBy === "default") && page > 1)
+            url = `/channels/${encodeURIComponent(formattedUsername)}/videos?page=${page}`;
+        else if (sortBy === "views")
+            url = `/channels/${encodeURIComponent(formattedUsername)}/videos?o=vi${page > 1 ? `&page=${page}` : ''}`;
+        else if (sortBy === "rating")
+            url = `/channels/${encodeURIComponent(formattedUsername)}/videos?o=ra${page > 1 ? `&page=${page}` : ''}`;
+        else
+            url = `/channels/${encodeURIComponent(formattedUsername)}`;
+    } else {
+        throw new Error("不支持的艺人类型");
+    }
+
+    const baseUrl = `https://cn.pornhub.com${url}`;
+    const headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/137.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
+    };
+
+    console.log(`[doFetch] 尝试请求: ${baseUrl}`);
+    // 请求其他类型（model, channels）的内容
+    const response = await Widget.http.get(baseUrl, { headers });
+    if (!response || !response.data) throw new Error("页面加载失败");
+
+    if (type === "model") return parseModelVideos(response.data);
+    if (type === "channels") return parseChannelVideos(response.data);
+    throw new Error("不支持的艺人类型");
+}
+
+
+//解析Model视频页面
+function parseModelVideos(html) {
+    var $ = Widget.html.load(html);
+
+    // 1. 只取第一个视频区块 section
+    var $sections = $(".videoSection.clear-both");
+    console.log("[日志] 页面 videoSection.clear-both 区块数量：", $sections.length);
+    if (!$sections.length) {
+        console.log("未找到视频区块 section");
+        return [];
+    }
+
+    var $firstSection = $sections.first();
+
+    // 2. 在这个 section 里找所有视频卡片
+    var videoItems = $firstSection.find(".videoblock, .videoBox, .pcVideoListItem, li[data-video-vkey]");
+    console.log("[日志] 第一个 videoSection 下视频卡片数量：", videoItems.length);
+
+    var videos = [];
+    var processedViewkeys = {};
+    videoItems.each(function (index, element) {
+        try {
+            var viewkey = extractViewkey($, element);
+            if (!viewkey) return;
+            if (processedViewkeys[viewkey]) return;
+            var videoInfo = extractVideoInfo($, element, viewkey);
+            videos.push(videoInfo);
+            processedViewkeys[viewkey] = true;
+        } catch (error) {
+            console.log("处理视频项时出错: " + error.message);
+        }
+    });
+
+    console.log("成功提取 " + videos.length + " 个艺人上传视频");
+    return videos;
+}
+
+//解析Channel视频页面
+function parseChannelVideos(html) {
+    const $ = Widget.html.load(html);
+    const result = [];
+    const $ul = $('ul#moreData.videosGridWrapper, ul#showAllChanelVideos.videosGridWrapper');
+    console.log("[parseChannelVideos] 命中的 ul 个数:", $ul.length);
+
+    if (!$ul.length) throw new Error("未找到频道视频主区块");
+
+    $ul.find("li.pcVideoListItem, li.videoblock, li.videoBox").each(function () {
+        const $item = $(this);
+        let vkey = $item.attr('data-video-vkey') ||
+            $item.attr('data-id') ||
+            ($item.find("a[href*='viewkey=']").attr("href") || "").match(/viewkey=([^&]+)/)?.[1];
+        if (!vkey) return;
+
+        const title = $item.find(".title a").attr("title") ||
+            $item.find(".title a").text() ||
+            $item.find(".title").text().trim();
+
+        let link = $item.find(".title a").attr("href") || $item.find("a[href*='viewkey=']").attr("href") || "";
+        if (link && !/^https?:\/\//.test(link)) link = "https://cn.pornhub.com" + link;
+
+        const img = $item.find("img");
+        const coverUrl = img.attr("src") || img.attr("data-thumb") || img.attr("data-src") || "";
+        const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
+
+        const durationText = $item.find(".duration, .videoDuration").text().trim();
+        const author = extractAuthor($, $item);
+
+        result.push({
+            id: vkey,
+            type: "link",
+            title: title,
+            coverUrl: coverUrl,
+            previewUrl: previewUrl,
+            durationText: durationText,
+            link: link,
+            description: author ? `作者：${author}` : ""
+        });
+    });
+
+    if (result.length === 0) throw new Error("未提取到频道视频数据");
+    return result;
+}
+
+// Pornstar主页（有上传区）视频提取
+function parsePornstarVideos(html) {
+    const $ = Widget.html.load(html);
+    const result = [];
+    const $list = $("ul#moreData.full-row-thumbs.videos.row-5-thumbs");
+
+    if (!$list.length) {
+        console.log("[parsePornstarVideos] 没有找到明星上传视频列表 ul#moreData.full-row-thumbs.videos.row-5-thumbs");
+        return [];
+    }
+
+    $list.find("li.pcVideoListItem, .wrap.flexibleHeight").each(function () {
+        const $item = $(this);
+
+        let vkey = $item.attr('data-video-vkey')
+            || $item.attr('data-id')
+            || ($item.find("a[href*='viewkey=']").attr("href") || "").match(/viewkey=([^&]+)/)?.[1];
+        if (!vkey) return;
+
+        const title = $item.find(".title a").attr("title")
+            || $item.find(".title a").text()
+            || $item.find(".title").text().trim();
+
+        let link = $item.find(".title a").attr("href") || $item.find("a[href*='viewkey=']").attr("href") || "";
+        if (link && !/^https?:\/\//.test(link)) link = "https://cn.pornhub.com" + link;
+
+        const img = $item.find("img");
+        const coverUrl = img.attr("src") || img.attr("data-thumb") || img.attr("data-src") || "";
+        const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
+        const durationText = $item.find(".duration, .videoDuration").text().trim();
+
+        result.push({
+            id: vkey,
+            type: "link",
+            title: title,
+            coverUrl: coverUrl,
+            previewUrl: previewUrl,
+            durationText: durationText,
+            link: link,
+            description: ""
+        });
+    });
+
+    if (result.length === 0) {
+        console.log("[parsePornstarVideos] 未提取到任何明星上传视频数据");
+    }
+    return result;
+}
+
+// Pornstar主页（无上传区）视频提取
+function parsePornstarHomePage(html) {
+    const $ = Widget.html.load(html);
+    const result = [];
+    $(".sectionWrapper .wrap.flexibleHeight").each(function () {
+        const $item = $(this);
+
+        let vkey = $item.find("a[href*='viewkey=']").attr("href")?.match(/viewkey=([^&]+)/)?.[1];
+        if (!vkey) return;
+
+        const title = $item.find(".title a").attr("title") ||
+            $item.find(".title a").text() ||
+            $item.find(".title").text().trim();
+
+        let link = $item.find(".title a").attr("href") || $item.find("a[href*='viewkey=']").attr("href") || "";
+        if (link && !/^https?:\/\//.test(link)) link = "https://cn.pornhub.com" + link;
+
+        const img = $item.find("img");
+        const coverUrl = img.attr("src") || img.attr("data-thumb") || img.attr("data-src") || "";
+        const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
+        const durationText = $item.find(".duration, .videoDuration").text().trim();
+
+        result.push({
+            id: vkey,
+            type: "link",
+            title: title,
+            coverUrl: coverUrl,
+            previewUrl: previewUrl,
+            durationText: durationText,
+            link: link
+        });
+    });
+    if (result.length === 0) throw new Error("未提取到主页视频数据");
+    return result;
+}
+
+
+
+
+
+//处理cooike
+function fixCookie(cookieStr) {
+    let arr = cookieStr.split(";").map(s => s.trim()).filter(Boolean);
+    // 只保留有效 key=value（且无 undefined/空值）
+    let valid = arr.filter(s => s.includes("=") && !/^([^=]+)=\s*$/.test(s) && !/undefined/i.test(s));
+    // user_session 放最前（有则优先，无也可）
+    valid.sort((a, b) => {
+        if (a.startsWith("user_session=")) return -1;
+        if (b.startsWith("user_session=")) return 1;
+        return 0;
+    });
+    return valid.join("; ");
+}
+
+//获取推荐视频列表
+async function getRecommendedVideos(params = {}) {
+    const rawCookie = params.cookie || "";
+    const page = Math.max(1, Number(params.page) || 1);
+    const sortBy = (params.sort_by || "").trim(); // ""(最相关) or "time"(最新)
+
+    const cookie = fixCookie(rawCookie);
+
+    // 构建 URL
+    let url = `https://cn.pornhub.com/recommended`;
+    const query = [];
+    if (sortBy) query.push(`o=${encodeURIComponent(sortBy)}`);
+    if (page > 1) query.push(`page=${page}`);
+    if (query.length > 0) url += "?" + query.join("&");
+    const headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/137.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+        "Referer": "https://cn.pornhub.com/",
+        "Cookie": cookie
+    };
+
+    const response = await Widget.http.get(url, { headers });
+
+    if (!response || !response.data) {
+        throw new Error("推荐页面加载失败，请检查网络/代理/Cookie");
+    }
+
+    // 自动检测是否为已登录状态（核心逻辑）
+    const html = response.data;
+    const isLogged =
+        html.includes('class="logged-in"') ||
+        html.includes("var isLogged = 1") ||
+        html.includes("'login_user': 'Yes'") ||
+        html.includes('id="topProfileMenu"') || // 顶部用户菜单
+        html.includes('/users/'); // 有用户专属链接
+    if (!isLogged) {
+        throw new Error("未登录或 Cookie 已失效，请重新获取 Cookie");
+    }
+
+    // 解析视频区块
+    const $ = Widget.html.load(html);
+    const videoSelector = ".pcVideoListItem, .videoblock, .videoBox, li.videoblock.videoBox";
+    const result = [];
+    $(videoSelector).each(function () {
+        const $item = $(this);
+
+        let vkey = $item.attr('data-video-vkey')
+            || $item.attr('data-id')
+            || ($item.find("a[href*='viewkey=']").attr("href") || "").match(/viewkey=([^&]+)/)?.[1];
+        if (!vkey) return;
+
+        const title = $item.find(".title a").attr("title")
+            || $item.find(".title a").text()
+            || $item.find(".title").text().trim();
+
+        let link = $item.find(".title a").attr("href") || $item.find("a[href*='viewkey=']").attr("href") || "";
+        if (link && !/^https?:\/\//.test(link)) {
+            link = "https://cn.pornhub.com" + link;
+        }
+
+        const img = $item.find("img");
+        const coverUrl = img.attr("src") || img.attr("data-thumb") || img.attr("data-src") || "";
+        const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
+        const durationText = $item.find(".duration, .videoDuration").text().trim();
+
+        let authorName = extractAuthor($, $item);
+        const description = authorName ? `作者：${authorName}` : "";
+
+        result.push({
+            id: vkey,
+            type: "link",
+            title: title,
+            coverUrl: coverUrl,
+            previewUrl: previewUrl,
+            durationText: durationText,
+            link: link,
+            description: description
+        });
+    });
+
+    if (result.length === 0) {
+        throw new Error("页面结构可能已变，未提取到推荐视频数据。");
+    }
+    return result;
+}
+
+// 按分类获取视频列表
 async function getVideos(originalParams = {}) {
     // 参数解包，保证不会undefined
     const params = { ...originalParams };
@@ -1274,6 +1738,9 @@ async function getVideos(originalParams = {}) {
             const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
             const durationText = $item.find(".duration, .videoDuration").text().trim();
 
+            const authorName = extractAuthor($, $item); // $item是$(this)
+            const description = authorName ? `作者：${authorName}` : "";
+
             items.push({
                 id: vkey,
                 type: "link",
@@ -1281,7 +1748,8 @@ async function getVideos(originalParams = {}) {
                 coverUrl: coverUrl,
                 previewUrl: previewUrl,
                 durationText: durationText,
-                link: link
+                link: link,
+                description: description
             });
         });
 
@@ -1297,7 +1765,7 @@ async function getVideos(originalParams = {}) {
     }
 }
 
-
+//按语言分类获取视频列表
 async function getVideosByLanguage(originalParams = {}) {
     const params = { ...originalParams };
     const language = params.language || "chinese";
@@ -1310,7 +1778,7 @@ async function getVideosByLanguage(originalParams = {}) {
     let url = `https://cn.pornhub.com/language/${encodeURIComponent(language)}?page=${page}`;
     if (p) url += `&p=${p}`;
     if (hd === "1") url += `&hd=1`;
-    if (sort_by) url += `&o=${sort_by}`;  
+    if (sort_by) url += `&o=${sort_by}`;
 
     console.log("按语言筛选拼接URL:", url);
 
@@ -1350,6 +1818,9 @@ async function getVideosByLanguage(originalParams = {}) {
             const previewUrl = img.attr("data-mediabook") || img.attr("data-preview") || img.attr("data-webm") || "";
             const durationText = $item.find(".duration, .videoDuration").text().trim();
 
+            const authorName = extractAuthor($, $item); // $item是$(this)
+            const description = authorName ? `作者：${authorName}` : "";
+
             items.push({
                 id: vkey,
                 type: "link",
@@ -1357,7 +1828,8 @@ async function getVideosByLanguage(originalParams = {}) {
                 coverUrl: coverUrl,
                 previewUrl: previewUrl,
                 durationText: durationText,
-                link: link
+                link: link,
+                description: description
             });
         });
 
@@ -1373,6 +1845,43 @@ async function getVideosByLanguage(originalParams = {}) {
     }
 }
 
+// 推荐区块极速切片采集
+function extractRecommendedVideos(htmlContent, maxCount = 10) {
+    let relatedHtml = "";
+    const blockStart = htmlContent.indexOf('<ul class="videos underplayer-thumbs fixedSizeThumbsVideosListing"');
+    if (blockStart !== -1) {
+        const blockEnd = htmlContent.indexOf('</ul>', blockStart);
+        if (blockEnd !== -1) {
+            relatedHtml = htmlContent.slice(blockStart, blockEnd + 5);
+        }
+    }
+    const $ = Widget.html.load(relatedHtml || htmlContent);
+
+    const result = [];
+    $("li[data-video-vkey]").slice(0, maxCount).each(function (i, element) {
+        const $element = $(element);
+        const vkey = $element.attr('data-video-vkey');
+        if (!vkey) return;
+        const title = $element.find('.title').text().trim() || $element.find('a[title]').attr('title') || '';
+        const img = $element.find('img');
+        const coverUrl = img.attr('src') || img.attr('data-thumb') || img.attr('data-src') || '';
+        const previewUrl = img.attr('data-mediabook') || img.attr('data-preview') || img.attr('data-webm') || '';
+        const durationText = $element.find('.duration, .videoDuration').text().trim();
+        const authorName = extractAuthor($, element);
+        const description = authorName ? `作者：${authorName}` : "";
+        result.push({
+            id: vkey,
+            type: "link",
+            title: title,
+            coverUrl: coverUrl,
+            previewUrl: previewUrl,
+            durationText: durationText,
+            link: `https://cn.pornhub.com/view_video.php?viewkey=${vkey}`,
+            description: description
+        });
+    });
+    return result;
+}
 
 
 // 加载视频详情函数
@@ -1396,41 +1905,25 @@ async function loadDetail(link) {
             }
         });
         const htmlContent = response.data;
-        const $ = Widget.html.load(htmlContent);
 
-        // 3. 获取主视频m3u8播放链接
-        const m3u8Data = await getVideoM3u8Link(viewkey);
+        // 3. 用详情HTML直接提取 m3u8
+        const m3u8Data = extractM3u8FromHtml(htmlContent);
+
         if (!m3u8Data || !m3u8Data.videoUrl) {
             console.log(`错误: 无法获取视频播放链接`);
             throw new Error("无法获取视频播放链接");
         }
 
-        // 4. 推荐视频区块采集，限制最多10条
-        const recommendedVideos = [];
-        const recommendedItems = $(".videos.underplayer-thumbs.fixedSizeThumbsVideosListing li[data-video-vkey]");
-        recommendedItems.slice(0, 10).each(function (i, element) {
-            const $element = $(element);
-            const vkey = extractViewkey($, element);
-            if (!vkey) return;
-            // 极简字段采集
-            const title = $element.find('.title').text().trim() || $element.find('a[title]').attr('title') || '';
-            const img = $element.find('img');
-            const coverUrl = img.attr('src') || img.attr('data-thumb') || img.attr('data-src') || '';
-            const previewUrl = img.attr('data-mediabook') || img.attr('data-preview') || img.attr('data-webm') || '';
-            const durationText = $element.find('.duration, .videoDuration').text().trim();
-            recommendedVideos.push({
-                id: vkey,
-                type: "link",
-                title: title,
-                coverUrl: coverUrl,
-                previewUrl: previewUrl,
-                durationText: durationText,
-                link: `https://cn.pornhub.com/view_video.php?viewkey=${vkey}`
-            });
-        });
+        // 4. 主视频作者
+        const $root = Widget.html.load(htmlContent);
+        const mainAuthorA = $root('.usernameWrap a').first();
+        const mainAuthor = mainAuthorA.attr('title') || "";
+
+        // 5. 推荐区块采集（极速切片，独立函数）
+        const recommendedVideos = extractRecommendedVideos(htmlContent, 10);
         console.log("推荐区块采集数量:", recommendedVideos.length);
 
-        // 5. 返回 ForwardWidget 规范详情对象
+        // 6. 返回 ForwardWidget 兼容的详情对象
         const result = {
             id: viewkey,
             type: "detail",
@@ -1443,6 +1936,7 @@ async function loadDetail(link) {
             title: "视频播放",
             duration: 0,
             formats: m3u8Data.formats,
+            description: mainAuthor ? `作者：${mainAuthor}` : "",
             childItems: recommendedVideos
         };
 
@@ -1457,7 +1951,9 @@ async function loadDetail(link) {
 
 module.exports = {
     metadata: WidgetMetadata,
+    getSearchResults: getSearchResults,
     getFavorites: getFavorites,
+    getRecommendedVideos: getRecommendedVideos,
     getUserUploads: getUserUploads,
     getVideos: getVideos,
     loadDetail: loadDetail
