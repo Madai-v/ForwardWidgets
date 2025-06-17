@@ -1,7 +1,7 @@
 WidgetMetadata = {
     id: "Pornhub",
     title: "Pornhub",
-    version: "1.0.3",
+    version: "1.0.4",
     requiredVersion: "0.0.1",
     description: "在线观看Pornhub",
     author: "海带",
@@ -119,7 +119,7 @@ WidgetMetadata = {
                         paramName: "sort_by",
                         value: ["new", "views", "rating"],
                     },
-                    enumOptions: [{ 'title': 'HongKongDoll', 'value': 'HongKongDoll' }, { title: '麻豆传媒', value: 'asiam' }, { title: '麻豆-LiRongRong', value: 'Li Rong Rong' }, {'title': 'manachanx','value': 'manachanx'} ,{ 'title': '798DS', 'value': '798DS' }, { 'title': 'aiwanxiongxiong', 'value': 'aiwanxiongxiong' }, { 'title': 'andmlove', 'value': 'andmlove' }, { 'title': 'ano ano chan', 'value': 'ano ano chan' }, { 'title': 'bibi Fluffy', 'value': 'bibi Fluffy' }, { 'title': 'CandyKissVip', 'value': 'CandyKissVip' }, { 'title': 'Chinese Bunny', 'value': 'Chinese Bunny' }, { 'title': 'DemiFairyTW', 'value': 'DemiFairyTW' }, { 'title': 'Elle Lee', 'value': 'Elle Lee' }, { 'title': 'Eve', 'value': 'Eve' }, { 'title': 'fortunecutie', 'value': 'fortunecutie' }, { 'title': 'LIs Evans', 'value': 'LIs Evans' }, { 'title': 'loliiiiipop99', 'value': 'loliiiiipop99' }, { 'title': 'Makissse', 'value': 'Makissse' }, { 'title': 'nan12138', 'value': 'nan12138' }, { 'title': 'Nana_taipei', 'value': 'Nana_taipei' }, { 'title': 'Nuomibaby', 'value': 'Nuomibaby' }, { 'title': 'papaxmama', 'value': 'papaxmama' }, { 'title': 'Qiobnxingcaiii', 'value': 'Qiobnxingcaiii' }, { 'title': 'SakuraCandy', 'value': 'SakuraCandy' }, { 'title': 'sskok16', 'value': 'sskok16' }, { 'title': 'SSR Peach', 'value': 'SSR Peach' }, { 'title': 'thelittlejuicer', 'value': 'thelittlejuicer' }, { 'title': 'TLMS_SVJ', 'value': 'TLMS_SVJ' }, { 'title': 'twtutu', 'value': 'twtutu' }, { 'title': 'Vita Won', 'value': 'Vita Won' }, { 'title': 'Yuqiao Chen', 'value': 'Yuqiao Chen' }, { 'title': 'YuzuKitty', 'value': 'YuzuKitty' }
+                    enumOptions: [{ 'title': 'HongKongDoll', 'value': 'HongKongDoll' }, { title: '麻豆传媒', value: 'asiam' }, { title: '麻豆-LiRongRong', value: 'Li Rong Rong' }, { 'title': 'Cabbage Sweety', 'value': 'Cabbage Sweety' }, { 'title': 'Lindainlove', 'value': 'Lindainlove' }, { 'title': 'SweetieYico', 'value': 'SweetieYico' }, { 'title': 'june liu', 'value': 'june liu' }, { 'title': 'wanrous', 'value': 'wanrous' }, { 'title': '77bandage', 'value': '77bandage' }, { 'title': 'youyou', 'value': 'youyou' }, { 'title': 'manachanx', 'value': 'manachanx' }, { title: 'lindainlove', value: 'lindainlove' }, { title: 'Karesi ni Baretara Kaisan', value: 'Karesi ni Baretara Kaisan' }, { title: 'k production film', value: 'k production film' }, { 'title': '798DS', 'value': '798DS' }, { 'title': 'aiwanxiongxiong', 'value': 'aiwanxiongxiong' }, { 'title': 'andmlove', 'value': 'andmlove' }, { 'title': 'ano ano chan', 'value': 'ano ano chan' }, { 'title': 'bibi Fluffy', 'value': 'bibi Fluffy' }, { 'title': 'CandyKissVip', 'value': 'CandyKissVip' }, { 'title': 'Chinese Bunny', 'value': 'Chinese Bunny' }, { 'title': 'DemiFairyTW', 'value': 'DemiFairyTW' }, { 'title': 'Elle Lee', 'value': 'Elle Lee' }, { 'title': 'Eve', 'value': 'Eve' }, { 'title': 'fortunecutie', 'value': 'fortunecutie' }, { 'title': 'LIs Evans', 'value': 'LIs Evans' }, { 'title': 'loliiiiipop99', 'value': 'loliiiiipop99' }, { 'title': 'Makissse', 'value': 'Makissse' }, { 'title': 'nan12138', 'value': 'nan12138' }, { 'title': 'Nana_taipei', 'value': 'Nana_taipei' }, { 'title': 'Nuomibaby', 'value': 'Nuomibaby' }, { 'title': 'papaxmama', 'value': 'papaxmama' }, { 'title': 'Qiobnxingcaiii', 'value': 'Qiobnxingcaiii' }, { 'title': 'SakuraCandy', 'value': 'SakuraCandy' }, { 'title': 'sskok16', 'value': 'sskok16' }, { 'title': 'SSR Peach', 'value': 'SSR Peach' }, { 'title': 'thelittlejuicer', 'value': 'thelittlejuicer' }, { 'title': 'TLMS_SVJ', 'value': 'TLMS_SVJ' }, { 'title': 'twtutu', 'value': 'twtutu' }, { 'title': 'Vita Won', 'value': 'Vita Won' }, { 'title': 'Yuqiao Chen', 'value': 'Yuqiao Chen' }, { 'title': 'YuzuKitty', 'value': 'YuzuKitty' }
                     ]
                 },
                 {
@@ -930,60 +930,58 @@ function extractAuthor($, element) {
     return author;
 }
 
-// 搜索功能主函数
+// 搜索功能主函数 
 async function getSearchResults(params) {
     const searchQuery = params.search_query || '';
-    const page = Math.max(1, Number(params.page) || 1);
+    const page = Math.max(1, Number(params.page) || 1);  // 确保页码正确
     const sortBy = params.sort_by || "";
     const searchType = params.search_type || "no";  // 获取是否开启精准搜索的设置
 
-    const formattedQuery = searchQuery.trim().replace(/[\s\-]+/g, '+');
-
+    const formattedQuery = searchQuery.trim().replace(/[\s\-]+/g, '+').toLowerCase();;
     let baseUrl = `https://cn.pornhub.com/video/search?search=${formattedQuery}`;
     if (sortBy === 'new') baseUrl += '&o=mr';
     else if (sortBy === 'views') baseUrl += '&o=mv';
     else if (sortBy === 'rating') baseUrl += '&o=tr';
-    if (page > 1) baseUrl += `&page=${page}`;
+    if (page > 1) baseUrl += `&page=${page}`;  // 根据页码构建URL
+
+    // 添加日志，查看生成的 baseUrl
+    console.log(`[getSearchResults] 当前请求的搜索 URL: ${baseUrl}`);
 
     const headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/137.0.0.0 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+        "Referer": "https://cn.pornhub.com/"
     };
-
-    console.log(`[getSearchResults] 请求搜索页面: ${baseUrl}`);
 
     try {
         const response = await Widget.http.get(baseUrl, { headers });
 
         if (response && response.data) {
-            console.log('[getSearchResults] 搜索页面加载成功');
             const $ = Widget.html.load(response.data);  // ✅ 正确加载页面
-            if (!$) {
-                console.error('[getSearchResults] 无法加载页面内容');
-                return [];
-            }
-
+            if (!$) return [];
             const $list = $("li.pcVideoListItem.js-pop.videoblock.videoBox.videoBoxesSearch");
+
+            // 添加日志，查看返回的 $list 长度
+            console.log(`[getSearchResults] 返回的搜索结果项数: ${$list.length}`);
+
             if ($list.length > 0) {
-                console.log(`[getSearchResults] 搜索结果存在视频，返回并解析该页`);
-                return parseSearchResults($, $list, searchQuery, searchType); // 传递 searchQuery 和 searchType
+                return parseSearchResults($, $list, searchQuery, formattedQuery, searchType);  // 传递正确的searchQuery和searchType
             } else {
-                console.log(`[getSearchResults] 没有找到视频，返回空结果。`);
+                console.log("[getSearchResults] 未找到任何视频，返回空数组");
                 return [];
             }
         } else {
-            console.log(`[getSearchResults] 页面加载失败`);
             throw new Error("页面加载失败");
         }
     } catch (e) {
-        console.error(`请求错误: ${e.message}`);
+        console.error("[getSearchResults] 错误:", e);
         throw e;
     }
 }
 
 // 搜索功能解析函数
-function parseSearchResults($, $list, searchQuery, searchType) {
+function parseSearchResults($, $list, searchQuery, formattedQuery, searchType) {
     const result = [];
     console.log(`解析搜索结果，匹配总项数: ${$list.length}`);
 
@@ -1002,13 +1000,16 @@ function parseSearchResults($, $list, searchQuery, searchType) {
             $item.find(".title a").text() ||
             $item.find(".title").text().trim();
 
-        // 提取作者名
-        const author = $item.find('.usernameWrap a').text().trim();
-        // console.log(`提取到的标题: ${title}, 作者: ${author}`);
+        // 使用 extractAuthor 函数提取作者名
+        const author = extractAuthor($, $item);  // 提取作者名
+        console.log(`提取到的标题: ${title}, 作者: ${author}`);
+
+        // 格式化作者信息到 description
+        const description = author ? `作者：${author}` : "";
 
         // 如果开启精准搜索，先进行筛选
         if (searchType === 'yes' && !filterExactSearchResults(title, author, searchQuery)) {
-            // console.log(`标题 ${title} 或者 作者 ${author} 不匹配，跳过`);
+            // console.log(`标题 ${title} 或者 作者 ${author} 不匹配，跳过`); 
             return; // 如果不匹配，跳过该项
         } else {
             console.log(`✅[精准搜索] 匹配成功: 标题 ${title}, 作者 ${author}`);
@@ -1029,6 +1030,7 @@ function parseSearchResults($, $list, searchQuery, searchType) {
             id: vkey,
             type: "link",
             title: title,
+            description: description,
             coverUrl: coverUrl,
             previewUrl: previewUrl,
             durationText: durationText,
@@ -1222,7 +1224,7 @@ async function getUserUploads(params = {}) {
 
     if (logo === "yx") {
         // 1. 优选艺人模式：params.username是type，查表拿真实用户名
-        const enumOptions = [{ title: 'HongKongDoll', value: 'HongKongDoll', type: 'model' }, { title: '麻豆传媒', value: 'asiam', type: 'channels' }, { title: '麻豆-LiRongRong', value: 'Li Rong Rong', type: 'pornstar' }, {'title': 'manachanx','value': 'manachanx', type: 'model' },{ title: '798DS', value: '798DS', type: 'model' }, { title: 'aiwanxiongxiong', value: 'aiwanxiongxiong', type: 'model' }, { title: 'andmlove', value: 'andmlove', type: 'model' }, { title: 'ano ano chan', value: 'ano ano chan', type: 'model' }, { title: 'bibi Fluffy', value: 'bibi Fluffy', type: 'model' }, { title: 'CandyKissVip', value: 'CandyKissVip', type: 'model' }, { title: 'Chinese Bunny', value: 'Chinese Bunny', type: 'model' }, { title: 'DemiFairyTW', value: 'DemiFairyTW', type: 'model' }, { title: 'Elle Lee', value: 'Elle Lee', type: 'model' }, { title: 'Eve', value: 'Eve', type: 'model' }, { title: 'fortunecutie', value: 'fortunecutie', type: 'model' }, { title: 'LIs Evans', value: 'LIs Evans', type: 'model' }, { title: 'loliiiiipop99', value: 'loliiiiipop99', type: 'model' }, { title: 'Makissse', value: 'Makissse', type: 'model' }, { title: 'nan12138', value: 'nan12138', type: 'model' }, { title: 'Nana_taipei', value: 'Nana_taipei', type: 'model' }, { title: 'Nuomibaby', value: 'Nuomibaby', type: 'model' }, { title: 'papaxmama', value: 'papaxmama', type: 'model' }, { title: 'Qiobnxingcaiii', value: 'Qiobnxingcaiii', type: 'model' }, { title: 'SakuraCandy', value: 'SakuraCandy', type: 'model' }, { title: 'sskok16', value: 'sskok16', type: 'model' }, { title: 'SSR Peach', value: 'SSR Peach', type: 'model' }, { title: 'thelittlejuicer', value: 'thelittlejuicer', type: 'model' }, { title: 'TLMS_SVJ', value: 'TLMS_SVJ', type: 'model' }, { title: 'twtutu', value: 'twtutu', type: 'model' }, { title: 'Vita Won', value: 'Vita Won', type: 'model' }, { title: 'Yuqiao Chen', value: 'Yuqiao Chen', type: 'model' }, { title: 'YuzuKitty', value: 'YuzuKitty', type: 'model' },
+        const enumOptions = [{ title: 'HongKongDoll', value: 'HongKongDoll', type: 'model' }, { title: '麻豆传媒', value: 'asiam', type: 'channels' }, { title: '麻豆-LiRongRong', value: 'Li Rong Rong', type: 'pornstar' }, { 'title': 'june liu', 'value': 'june liu', 'type': 'pornstar' }, { 'title': 'Cabbage Sweety', 'value': 'Cabbage Sweety', 'type': 'model' }, { 'title': 'Lindainlove', 'value': 'Lindainlove', 'type': 'model' }, { 'title': 'SweetieYico', 'value': 'SweetieYico', 'type': 'model' }, { 'title': 'wanrous', 'value': 'wanrous', 'type': 'model' }, { 'title': '77bandage', 'value': '77bandage', 'type': 'model' }, { 'title': 'youyou', 'value': 'youyou', 'type': 'model' }, { 'title': 'manachanx', 'value': 'manachanx', type: 'model' }, { title: 'lindainlove', value: 'lindainlove', type: 'model' }, { title: 'Karesi ni Baretara Kaisan', value: 'Karesi ni Baretara Kaisan', type: 'model' }, { title: 'k production film', value: 'k production film', type: 'model' }, { title: '798DS', value: '798DS', type: 'model' }, { title: 'aiwanxiongxiong', value: 'aiwanxiongxiong', type: 'model' }, { title: 'andmlove', value: 'andmlove', type: 'model' }, { title: 'ano ano chan', value: 'ano ano chan', type: 'model' }, { title: 'bibi Fluffy', value: 'bibi Fluffy', type: 'model' }, { title: 'CandyKissVip', value: 'CandyKissVip', type: 'model' }, { title: 'Chinese Bunny', value: 'Chinese Bunny', type: 'model' }, { title: 'DemiFairyTW', value: 'DemiFairyTW', type: 'model' }, { title: 'Elle Lee', value: 'Elle Lee', type: 'model' }, { title: 'Eve', value: 'Eve', type: 'model' }, { title: 'fortunecutie', value: 'fortunecutie', type: 'model' }, { title: 'LIs Evans', value: 'LIs Evans', type: 'model' }, { title: 'loliiiiipop99', value: 'loliiiiipop99', type: 'model' }, { title: 'Makissse', value: 'Makissse', type: 'model' }, { title: 'nan12138', value: 'nan12138', type: 'model' }, { title: 'Nana_taipei', value: 'Nana_taipei', type: 'model' }, { title: 'Nuomibaby', value: 'Nuomibaby', type: 'model' }, { title: 'papaxmama', value: 'papaxmama', type: 'model' }, { title: 'Qiobnxingcaiii', value: 'Qiobnxingcaiii', type: 'model' }, { title: 'SakuraCandy', value: 'SakuraCandy', type: 'model' }, { title: 'sskok16', value: 'sskok16', type: 'model' }, { title: 'SSR Peach', value: 'SSR Peach', type: 'model' }, { title: 'thelittlejuicer', value: 'thelittlejuicer', type: 'model' }, { title: 'TLMS_SVJ', value: 'TLMS_SVJ', type: 'model' }, { title: 'twtutu', value: 'twtutu', type: 'model' }, { title: 'Vita Won', value: 'Vita Won', type: 'model' }, { title: 'Yuqiao Chen', value: 'Yuqiao Chen', type: 'model' }, { title: 'YuzuKitty', value: 'YuzuKitty', type: 'model' },
         ];
         const option = enumOptions.find(opt => opt.value === params.username);
         if (!option) throw new Error("优选艺人未选中或无效");
@@ -1248,8 +1250,8 @@ async function doFetch(type, username, params) {
     const sortBy = params.sort_by || "new";
     const page = Math.max(1, Number(params.page) || 1);
 
-    // 格式化用户名，替换空格为连字符
-    const formattedUsername = username.trim().replace(/\s+/g, "-");
+    // 对传入的 username 进行处理：空格替换为连字符并转为小写
+    const formattedUsername = username.trim().replace(/\s+/g, '-').toLowerCase();
 
     // 拼接URL
     let url = "";
