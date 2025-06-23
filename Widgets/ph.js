@@ -1,7 +1,7 @@
 WidgetMetadata = {
     id: "Pornhub",
     title: "Pornhub",
-    version: "1.0.4",
+    version: "1.0.5",
     requiredVersion: "0.0.1",
     description: "在线观看Pornhub",
     author: "海带",
@@ -789,6 +789,7 @@ function extractVideoInfo($, element, viewkey) {
     var videoData = {
         id: viewkey,
         type: "link",
+        mediaType: "movie",
         title: title,
         coverUrl: thumbnailUrl,
         previewUrl: previewUrl,
@@ -1029,6 +1030,7 @@ function parseSearchResults($, $list, searchQuery, formattedQuery, searchType) {
         result.push({
             id: vkey,
             type: "link",
+            mediaType: "movie",
             title: title,
             description: description,
             coverUrl: coverUrl,
@@ -1403,6 +1405,7 @@ function parseChannelVideos(html) {
         result.push({
             id: vkey,
             type: "link",
+            mediaType: "movie",
             title: title,
             coverUrl: coverUrl,
             previewUrl: previewUrl,
@@ -1450,6 +1453,7 @@ function parsePornstarVideos(html) {
         result.push({
             id: vkey,
             type: "link",
+            mediaType: "movie",
             title: title,
             coverUrl: coverUrl,
             previewUrl: previewUrl,
@@ -1490,6 +1494,7 @@ function parsePornstarHomePage(html) {
         result.push({
             id: vkey,
             type: "link",
+            mediaType: "movie",
             title: title,
             coverUrl: coverUrl,
             previewUrl: previewUrl,
@@ -1591,6 +1596,7 @@ async function getRecommendedVideos(params = {}) {
         result.push({
             id: vkey,
             type: "link",
+            mediaType: "movie",
             title: title,
             coverUrl: coverUrl,
             previewUrl: previewUrl,
@@ -1746,6 +1752,7 @@ async function getVideos(originalParams = {}) {
             items.push({
                 id: vkey,
                 type: "link",
+                mediaType: "movie",
                 title: title,
                 coverUrl: coverUrl,
                 previewUrl: previewUrl,
@@ -1826,6 +1833,7 @@ async function getVideosByLanguage(originalParams = {}) {
             items.push({
                 id: vkey,
                 type: "link",
+                mediaType: "movie",
                 title: title,
                 coverUrl: coverUrl,
                 previewUrl: previewUrl,
@@ -1874,6 +1882,7 @@ function extractRecommendedVideos(htmlContent, maxCount = 10) {
         result.push({
             id: vkey,
             type: "link",
+            mediaType: "movie",
             title: title,
             coverUrl: coverUrl,
             previewUrl: previewUrl,
@@ -1929,6 +1938,7 @@ async function loadDetail(link) {
         const result = {
             id: viewkey,
             type: "detail",
+            mediaType: "movie",
             videoUrl: m3u8Data.videoUrl,
             customHeaders: {
                 "Referer": fullVideoUrl,
